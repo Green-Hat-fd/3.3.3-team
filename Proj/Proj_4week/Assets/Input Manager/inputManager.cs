@@ -73,7 +73,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ScattoAcqua"",
+                    ""name"": ""Nuoto"",
                     ""type"": ""Button"",
                     ""id"": ""8aac8c6f-0920-4216-a798-fef701e96e0c"",
                     ""expectedControlType"": ""Button"",
@@ -85,6 +85,15 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""name"": ""Interazione"",
                     ""type"": ""Button"",
                     ""id"": ""12316aeb-1073-4f32-a3d1-a1905924c474"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Corsa"",
+                    ""type"": ""Button"",
+                    ""id"": ""e530375c-872a-4bb1-82d4-c9b7a5816012"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -352,7 +361,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ScattoAcqua"",
+                    ""action"": ""Nuoto"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -363,7 +372,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ScattoAcqua"",
+                    ""action"": ""Nuoto"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -386,6 +395,28 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interazione"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""14868a82-5441-4a53-afd8-f14edfa4e556"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Corsa"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb115125-f58c-412c-b946-f1e67306b81a"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Corsa"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -967,8 +998,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         m_Giocatore_Salto = m_Giocatore.FindAction("Salto", throwIfNotFound: true);
         m_Giocatore_MeleeAtk = m_Giocatore.FindAction("MeleeAtk", throwIfNotFound: true);
         m_Giocatore_Lingua = m_Giocatore.FindAction("Lingua", throwIfNotFound: true);
-        m_Giocatore_ScattoAcqua = m_Giocatore.FindAction("ScattoAcqua", throwIfNotFound: true);
+        m_Giocatore_Nuoto = m_Giocatore.FindAction("Nuoto", throwIfNotFound: true);
         m_Giocatore_Interazione = m_Giocatore.FindAction("Interazione", throwIfNotFound: true);
+        m_Giocatore_Corsa = m_Giocatore.FindAction("Corsa", throwIfNotFound: true);
         // Generali
         m_Generali = asset.FindActionMap("Generali", throwIfNotFound: true);
         m_Generali_Pausa = m_Generali.FindAction("Pausa", throwIfNotFound: true);
@@ -1048,8 +1080,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     private readonly InputAction m_Giocatore_Salto;
     private readonly InputAction m_Giocatore_MeleeAtk;
     private readonly InputAction m_Giocatore_Lingua;
-    private readonly InputAction m_Giocatore_ScattoAcqua;
+    private readonly InputAction m_Giocatore_Nuoto;
     private readonly InputAction m_Giocatore_Interazione;
+    private readonly InputAction m_Giocatore_Corsa;
     public struct GiocatoreActions
     {
         private @InputManager m_Wrapper;
@@ -1059,8 +1092,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         public InputAction @Salto => m_Wrapper.m_Giocatore_Salto;
         public InputAction @MeleeAtk => m_Wrapper.m_Giocatore_MeleeAtk;
         public InputAction @Lingua => m_Wrapper.m_Giocatore_Lingua;
-        public InputAction @ScattoAcqua => m_Wrapper.m_Giocatore_ScattoAcqua;
+        public InputAction @Nuoto => m_Wrapper.m_Giocatore_Nuoto;
         public InputAction @Interazione => m_Wrapper.m_Giocatore_Interazione;
+        public InputAction @Corsa => m_Wrapper.m_Giocatore_Corsa;
         public InputActionMap Get() { return m_Wrapper.m_Giocatore; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1085,12 +1119,15 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @Lingua.started -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnLingua;
                 @Lingua.performed -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnLingua;
                 @Lingua.canceled -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnLingua;
-                @ScattoAcqua.started -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnScattoAcqua;
-                @ScattoAcqua.performed -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnScattoAcqua;
-                @ScattoAcqua.canceled -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnScattoAcqua;
+                @Nuoto.started -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnNuoto;
+                @Nuoto.performed -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnNuoto;
+                @Nuoto.canceled -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnNuoto;
                 @Interazione.started -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnInterazione;
                 @Interazione.performed -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnInterazione;
                 @Interazione.canceled -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnInterazione;
+                @Corsa.started -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnCorsa;
+                @Corsa.performed -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnCorsa;
+                @Corsa.canceled -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnCorsa;
             }
             m_Wrapper.m_GiocatoreActionsCallbackInterface = instance;
             if (instance != null)
@@ -1110,12 +1147,15 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @Lingua.started += instance.OnLingua;
                 @Lingua.performed += instance.OnLingua;
                 @Lingua.canceled += instance.OnLingua;
-                @ScattoAcqua.started += instance.OnScattoAcqua;
-                @ScattoAcqua.performed += instance.OnScattoAcqua;
-                @ScattoAcqua.canceled += instance.OnScattoAcqua;
+                @Nuoto.started += instance.OnNuoto;
+                @Nuoto.performed += instance.OnNuoto;
+                @Nuoto.canceled += instance.OnNuoto;
                 @Interazione.started += instance.OnInterazione;
                 @Interazione.performed += instance.OnInterazione;
                 @Interazione.canceled += instance.OnInterazione;
+                @Corsa.started += instance.OnCorsa;
+                @Corsa.performed += instance.OnCorsa;
+                @Corsa.canceled += instance.OnCorsa;
             }
         }
     }
@@ -1265,8 +1305,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         void OnSalto(InputAction.CallbackContext context);
         void OnMeleeAtk(InputAction.CallbackContext context);
         void OnLingua(InputAction.CallbackContext context);
-        void OnScattoAcqua(InputAction.CallbackContext context);
+        void OnNuoto(InputAction.CallbackContext context);
         void OnInterazione(InputAction.CallbackContext context);
+        void OnCorsa(InputAction.CallbackContext context);
     }
     public interface IGeneraliActions
     {

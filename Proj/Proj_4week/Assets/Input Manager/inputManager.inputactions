@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ScattoAcqua",
+                    "name": "Nuoto",
                     "type": "Button",
                     "id": "8aac8c6f-0920-4216-a798-fef701e96e0c",
                     "expectedControlType": "Button",
@@ -63,6 +63,15 @@
                     "name": "Interazione",
                     "type": "Button",
                     "id": "12316aeb-1073-4f32-a3d1-a1905924c474",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Corsa",
+                    "type": "Button",
+                    "id": "e530375c-872a-4bb1-82d4-c9b7a5816012",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -330,7 +339,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ScattoAcqua",
+                    "action": "Nuoto",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -341,7 +350,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ScattoAcqua",
+                    "action": "Nuoto",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -364,6 +373,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interazione",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14868a82-5441-4a53-afd8-f14edfa4e556",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Corsa",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb115125-f58c-412c-b946-f1e67306b81a",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Corsa",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

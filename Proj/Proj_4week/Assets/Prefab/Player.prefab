@@ -239,10 +239,10 @@ MonoBehaviour:
   speed: 6
   turnSmoothTime: 0.1
   gravity: -9.81
-  jumpHeight: 3
+  jumpHeight: 1
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 24
   jumpCharge: 0
 --- !u!114 &243822945270582381
 MonoBehaviour:
