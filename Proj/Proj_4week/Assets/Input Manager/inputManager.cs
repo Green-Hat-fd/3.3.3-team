@@ -98,6 +98,15 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sparo"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5433231-7443-48da-a763-c6af92520bf3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -417,6 +426,28 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Corsa"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""99f38ccf-7801-482d-a0da-0193e5a09508"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sparo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c5b278c-0995-4866-81a0-f24648e83e61"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sparo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1001,6 +1032,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         m_Giocatore_Nuoto = m_Giocatore.FindAction("Nuoto", throwIfNotFound: true);
         m_Giocatore_Interazione = m_Giocatore.FindAction("Interazione", throwIfNotFound: true);
         m_Giocatore_Corsa = m_Giocatore.FindAction("Corsa", throwIfNotFound: true);
+        m_Giocatore_Sparo = m_Giocatore.FindAction("Sparo", throwIfNotFound: true);
         // Generali
         m_Generali = asset.FindActionMap("Generali", throwIfNotFound: true);
         m_Generali_Pausa = m_Generali.FindAction("Pausa", throwIfNotFound: true);
@@ -1083,6 +1115,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
     private readonly InputAction m_Giocatore_Nuoto;
     private readonly InputAction m_Giocatore_Interazione;
     private readonly InputAction m_Giocatore_Corsa;
+    private readonly InputAction m_Giocatore_Sparo;
     public struct GiocatoreActions
     {
         private @InputManager m_Wrapper;
@@ -1095,6 +1128,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         public InputAction @Nuoto => m_Wrapper.m_Giocatore_Nuoto;
         public InputAction @Interazione => m_Wrapper.m_Giocatore_Interazione;
         public InputAction @Corsa => m_Wrapper.m_Giocatore_Corsa;
+        public InputAction @Sparo => m_Wrapper.m_Giocatore_Sparo;
         public InputActionMap Get() { return m_Wrapper.m_Giocatore; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1128,6 +1162,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @Corsa.started -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnCorsa;
                 @Corsa.performed -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnCorsa;
                 @Corsa.canceled -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnCorsa;
+                @Sparo.started -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnSparo;
+                @Sparo.performed -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnSparo;
+                @Sparo.canceled -= m_Wrapper.m_GiocatoreActionsCallbackInterface.OnSparo;
             }
             m_Wrapper.m_GiocatoreActionsCallbackInterface = instance;
             if (instance != null)
@@ -1156,6 +1193,9 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
                 @Corsa.started += instance.OnCorsa;
                 @Corsa.performed += instance.OnCorsa;
                 @Corsa.canceled += instance.OnCorsa;
+                @Sparo.started += instance.OnSparo;
+                @Sparo.performed += instance.OnSparo;
+                @Sparo.canceled += instance.OnSparo;
             }
         }
     }
@@ -1308,6 +1348,7 @@ public partial class @InputManager : IInputActionCollection2, IDisposable
         void OnNuoto(InputAction.CallbackContext context);
         void OnInterazione(InputAction.CallbackContext context);
         void OnCorsa(InputAction.CallbackContext context);
+        void OnSparo(InputAction.CallbackContext context);
     }
     public interface IGeneraliActions
     {
