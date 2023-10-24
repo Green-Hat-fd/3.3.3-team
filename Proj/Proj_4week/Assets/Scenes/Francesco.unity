@@ -632,6 +632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1854810669}
   - component: {fileID: 1854810668}
+  - component: {fileID: 1854810670}
   m_Layer: 0
   m_Name: Pla
   m_TagString: Untagged
@@ -646,7 +647,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854810667}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e570a63c4d5b946b92f8ff6355fe26, type: 3}
   m_Name: 
@@ -676,6 +677,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1854810670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854810667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03a474b3a5af504e8ecd8911221cc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  options_SO: {fileID: 11400000, guid: 33497d08385e46449bf7c4d706b933d0, type: 2}
+  cameraMasterPivot: {fileID: 337351690}
+  cameraPivotTilt: {fileID: 214387188}
+  playerCam: {fileID: 920553070}
+  playerToFollow: {fileID: 1052207349}
+  camMovingVel: 6.5
+  rotVel: 6.5
+  vertRotRange: {x: -15, y: 52.5}
+  camDistRange: {x: 1, y: 4}
 --- !u!1 &2066020525
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,7 +50,7 @@ public class OptionsSO_Script : ScriptableObject
     [SerializeField] float soundVolume = 0f;
 
     ///<summary></summary>
-    /// <param name="vM"> new volume, in range [0; 1.1]</param>
+    /// <param name="vM"> nuovo volume, nel range [0; 1.1]</param>
     public void ChangeMusicVolume(float vM)
     {
         //Puts as volume in the mixer between [-80; 5] dB
@@ -59,7 +59,7 @@ public class OptionsSO_Script : ScriptableObject
         musicVolume = vM * 100;
     }
     ///<summary></summary>
-    /// <param name="vS"> new volume, in range [0; 1.1]</param>
+    /// <param name="vS"> nuovo volume, nel range [0; 1.1]</param>
     public void ChangeSoundVolume(float vS)
     {
         //Puts as volume in the mixer between [-80; 5] dB
@@ -69,7 +69,7 @@ public class OptionsSO_Script : ScriptableObject
     }
 
     ///<summary></summary>
-    /// <param name="vM"> new volume, in range [0; 11]</param>
+    /// <param name="vM"> nuovo volume, nel range [0; 11]</param>
     public void ChangeMusicVolumeTen(float vM)
     {
         vM /= 10;
@@ -80,7 +80,7 @@ public class OptionsSO_Script : ScriptableObject
         musicVolume = vM * 100;
     }
     ///<summary></summary>
-    /// <param name="vS"> new volume, in range [0; 11]</param>
+    /// <param name="vS"> nuovo volume, nel range [0; 11]</param>
     public void ChangeSoundVolumeTen(float vS)
     {
         vS /= 10;
@@ -97,6 +97,24 @@ public class OptionsSO_Script : ScriptableObject
     public float GetMusicVolume_Percent() => musicVolume / 100;
     public float GetSoundVolume() => audioCurve.Evaluate(soundVolume);
     public float GetSoundVolume_Percent() => soundVolume / 100;
+
+    #endregion
+
+
+    #region Sensibilità mouse
+
+    [Space(15)]
+    [Range(0, 3)]
+    [SerializeField] float mouseSensitivity = 1;
+
+    /// <summary></summary>
+    /// <param name="s">nuova sensitività, nel range [0; 3]</param>
+    public void SetMouseSensitivity(float s)
+    {
+        mouseSensitivity = s;
+    }
+
+    public float GetSensitivity() => mouseSensitivity;
 
     #endregion
 

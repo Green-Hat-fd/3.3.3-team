@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class RotazioneCameraScript : MonoBehaviour
+public class CameraRotScript : MonoBehaviour
 {
-    //[SerializeField] OptionsSO_Script options_SO;
+    [SerializeField] OptionsSO_Script options_SO;
 
     [Space(10)]
     [SerializeField] Transform cameraMasterPivot;
@@ -19,7 +19,7 @@ public class RotazioneCameraScript : MonoBehaviour
     [SerializeField] float camMovingVel = 6.5f;
 
     [Space(10)]
-    [SerializeField] float rotVel;
+    [SerializeField] float rotVel = 6.5f;
     [SerializeField] Vector2 vertRotRange = new Vector2(-15, 52.5f);
     [Space(5)]
     [SerializeField] Vector2 camDistRange = new Vector2(1, 5);
@@ -32,7 +32,7 @@ public class RotazioneCameraScript : MonoBehaviour
     bool centerMouse = true;
 
 
-    
+
     void Awake()
     {
         playerCam_Tr = playerCam.transform;
@@ -91,8 +91,8 @@ public class RotazioneCameraScript : MonoBehaviour
 
 
         //Movimento mouse * sensibilita' (dalle impost.)
-        //mouseX *= options_SO.LeggiSensibilita();
-        //mouseY *= options_SO.LeggiSensibilita();
+        mouseX *= options_SO.GetSensitivity();
+        mouseY *= options_SO.GetSensitivity();
 
 
         #region Gamepad
@@ -140,7 +140,7 @@ public class RotazioneCameraScript : MonoBehaviour
     public void SetCenterMouse(bool value)
     {
         centerMouse = value;
-        
+
 
         //Blocca (o no) + nasconde (o meno)
         //il mouse al centro

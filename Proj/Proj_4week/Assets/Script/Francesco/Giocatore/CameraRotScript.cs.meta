@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e03a474b3a5af504e8ecd8911221cc72
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - options_SO: {fileID: 11400000, guid: 33497d08385e46449bf7c4d706b933d0, type: 2}
+  - cameraMasterPivot: {instanceID: 0}
+  - cameraPivotTilt: {instanceID: 0}
+  - playerCam: {instanceID: 0}
+  - playerToFollow: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

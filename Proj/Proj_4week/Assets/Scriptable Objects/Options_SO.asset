@@ -48,4 +48,5 @@ MonoBehaviour:
     m_RotationOrder: 4
   musicVolume: 50
   soundVolume: 60
+  mouseSensitivity: 1
   fullscreen: 0
