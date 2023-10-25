@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public class PlayerMovevent : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class PlayerMovevent : MonoBehaviour
             speed = speedStandard;
         }
 
-        if (GameManager.inst.inputManager.Giocatore.Corsa.WasPressedThisFrame() && isMoving && isGrounded) //dopo esser stato premuto una volta aumenta la velocita' finche' non ci si ferma. Ovviamente non funziona in acqua
+        if (GameManager.inst.inputManager.Giocatore.Corsa.WasPressedThisFrame() && isMoving && isGrounded && !isRunning) //dopo esser stato premuto una volta aumenta la velocita' finche' non ci si ferma. Ovviamente non funziona in acqua
         {
              isRunning = true;
              speed = speedBonus;
@@ -105,7 +106,7 @@ public class PlayerMovevent : MonoBehaviour
         
         if (GameManager.inst.inputManager.Giocatore.Nuoto.WasPressedThisFrame() && inWater) //a fare da trigger non e' il terreno sotto ma l'acqua in trigger che sta di mezzo tra i due
         {
-            Vector3 camForward = Vector3.Scale(cam.forward, new Vector3(1, 0, 1)).normalized;
+            Vector3 camForward = Vector3.Scale(transform.forward, new Vector3(1, 0, 1)).normalized;
             dashDirection = camForward;
             Vector3 dashDestination = transform.position + dashDirection * dashDistance;
 
@@ -150,6 +151,14 @@ public class PlayerMovevent : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            DamageDash();
+        }
+    }
+    /*
     private IEnumerator PerformDash(Vector3 destination, float speed)
     {
         float startTime = Time.time;
@@ -164,5 +173,18 @@ public class PlayerMovevent : MonoBehaviour
         }
 
         isDashing = false;
+    }*/
+
+    private void DamageDash()
+    {
+        Vector3 camForward = Vector3.Scale(- transform.forward, new Vector3(1, 0, 1)).normalized;
+        dashDirection = camForward;
+        Vector3 dashDestination = transform.position + dashDirection * dashDistance;
+
+        if (!Physics.Raycast(transform.position, dashDirection, dashDistance))
+        {
+            isDashing = true;
+            dashTimer = 0f;
+        }
     }
 }

@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 243822945270582380}
   - component: {fileID: 243822945270582379}
   - component: {fileID: 1630571754}
+  - component: {fileID: 1231959676381638543}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -463,6 +464,27 @@ MonoBehaviour:
   proiettilePrefab: {fileID: 365451947920555006, guid: 8f50c08ebe39aed45bab3cea237dca5c, type: 3}
   puntoSparo: {fileID: 1474413534}
   velocitaProiettile: 700
+--- !u!114 &1231959676381638543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243822945270582371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03a474b3a5af504e8ecd8911221cc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  options_SO: {fileID: 11400000, guid: 33497d08385e46449bf7c4d706b933d0, type: 2}
+  cameraMasterPivot: {fileID: 0}
+  cameraPivotTilt: {fileID: 0}
+  playerCam: {fileID: 0}
+  playerToFollow: {fileID: 243822945270582383}
+  camMovingVel: 6.5
+  rotVel: 6.5
+  vertRotRange: {x: -15, y: 52.5}
+  camDistRange: {x: 1, y: 5}
 --- !u!1 &243822945553773277
 GameObject:
   m_ObjectHideFlags: 0
