@@ -44,41 +44,6 @@ public class CameraRotScript : MonoBehaviour
 
     void Update()
     {
-        #region Limita la distanza della cam per non farla entrare nei muri (TODO: rinomina)
-
-        //Calcolo della direzione della telecamera
-        dirCamPlayer = playerCam_Tr.position - cameraMasterPivot.position;
-
-
-        //Calcolo se la telecamera ha colpito un muro
-        //(non colpisce i Trigger e "~0" significa che collide con tutti i layer)
-        hasCamHitWall = Physics.Raycast(playerToFollow.position,
-                                     dirCamPlayer,
-                                     out hitWall,
-                                     camDistRange.y - (playerCam.nearClipPlane + 0.1f),
-                                     ~0,
-                                     QueryTriggerInteraction.Ignore);
-
-
-        //Se ha colpito il muro avvicina la telecamera,
-        //se no la mette alla massima distanza
-        camDist = hasCamHitWall
-                    ? hitWall.distance
-                    : camDistRange.y;
-
-        //Limita la distanza nel range
-        camDist = Mathf.Clamp(camDist, camDistRange.x, camDistRange.y);
-
-
-        //Calcola la nuova posizione
-        Vector3 _camPos = playerCam_Tr.localPosition;
-        _camPos.z = -camDist;
-        playerCam_Tr.localPosition = _camPos;
-
-        #endregion
-
-
-
         #region Rotazione telecamera
 
         //Prende la rotazione
@@ -117,6 +82,41 @@ public class CameraRotScript : MonoBehaviour
 
         cameraPivotTilt.localRotation = Quaternion.Euler(xRot, 0, 0f);    //La X come rotazione Y del pivot orizz
         cameraMasterPivot.Rotate(Vector3.up * mouseX);                      //...e la Y come rotazione X del pivot vert
+
+        #endregion
+
+
+
+        #region Limita la distanza della cam per non farla entrare nei muri
+
+        //Calcolo della direzione della telecamera
+        dirCamPlayer = playerCam_Tr.position - cameraMasterPivot.position;
+
+
+        //Calcolo se la telecamera ha colpito un muro
+        //(non colpisce i Trigger e "~0" significa che collide con tutti i layer)
+        hasCamHitWall = Physics.Raycast(playerToFollow.position,
+                                     dirCamPlayer,
+                                     out hitWall,
+                                     camDistRange.y - (playerCam.nearClipPlane + 0.1f),
+                                     ~0,
+                                     QueryTriggerInteraction.Ignore);
+
+
+        //Se ha colpito il muro avvicina la telecamera,
+        //se no la mette alla massima distanza
+        camDist = hasCamHitWall
+                    ? hitWall.distance
+                    : camDistRange.y;
+
+        //Limita la distanza nel range
+        camDist = Mathf.Clamp(camDist, camDistRange.x, camDistRange.y);
+
+
+        //Calcola la nuova posizione
+        Vector3 _camPosDist = playerCam_Tr.localPosition;
+        _camPosDist.z = -camDist;
+        playerCam_Tr.localPosition = _camPosDist;
 
         #endregion
     }
@@ -158,8 +158,8 @@ public class CameraRotScript : MonoBehaviour
     {
         //Limita il range della rotazione verticale della telecamera
         //(con un min di -90° e un max di 90°)
-        vertRotRange.x = Mathf.Clamp(vertRotRange.x, -90, vertRotRange.x);
-        vertRotRange.y = Mathf.Clamp(vertRotRange.y, vertRotRange.y, 90);
+        vertRotRange.x = Mathf.Clamp(vertRotRange.x, -90, vertRotRange.y);
+        vertRotRange.y = Mathf.Clamp(vertRotRange.y, vertRotRange.x, 90);
 
         //Limita il range della distanza tra la telecamera e il giocatore
         //(sempre positivo)
@@ -172,7 +172,7 @@ public class CameraRotScript : MonoBehaviour
 
     #region EXTRA - Gizmo
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         //Disegna una linea grigia che collega la telecamera al giocatore
         Vector3 camPos = playerCam.transform.position;
@@ -187,7 +187,10 @@ public class CameraRotScript : MonoBehaviour
         Gizmos.color = Color.gray;
         Gizmos.DrawWireSphere(playerCam.transform.position, playerCam.nearClipPlane + 0.1f);
         Gizmos.DrawWireSphere(playerToFollow.position, camDistRange.x);
+    }
 
+    private void OnDrawGizmosSelected()
+    {
         //Disegna un cubetto verde che indica dove ha colpito il muro
         Gizmos.color = Color.green;
         if (hasCamHitWall)
@@ -195,6 +198,22 @@ public class CameraRotScript : MonoBehaviour
             Gizmos.DrawLine(playerToFollow.position, hitWall.point);
             Gizmos.DrawCube(hitWall.point, Vector3.one * 0.1f);
         }
+
+
+        //Disegna due linee blu nei limiti della rotazione della telecamera
+        Vector3 camPos = playerCam.transform.position;
+
+        Vector3 camPos2D = new Vector3(camPos.x,
+                                       playerToFollow.position.y,
+                                       camPos.z),
+                dir = (camPos2D - transform.position).normalized;
+
+        Quaternion minRot = Quaternion.AngleAxis(vertRotRange.x, cameraMasterPivot.right),
+                   maxRot = Quaternion.AngleAxis(vertRotRange.y, cameraMasterPivot.right);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(transform.position, minRot * dir * 1.5f);
+        Gizmos.DrawRay(transform.position, maxRot * dir * 1.5f);
     }
 
     #endregion

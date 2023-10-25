@@ -278,4 +278,8 @@ public class SaveManager : MonoBehaviour
 
 
 
-class PlayerStatsSO_Script { }
+class PlayerStatsSO_Script 
+{
+    public void AddScore(int score)
+    { }
+}
