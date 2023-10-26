@@ -34,6 +34,10 @@ public class PlayerMovevent : MonoBehaviour
     [SerializeField] private float speedStandard = 6f;
     [SerializeField] private float speedDecreese = 3f;
 
+    [SerializeField] private float interactionRange = 2.0f; // Regola la distanza di interazione
+    [SerializeField] private LayerMask grabbableLayer;
+    private bool isGrabbed = false;
+
     void Update()
     {
         jumpCharge = Mathf.Clamp(jumpCharge, 0f, maxJumpCharge);
@@ -84,24 +88,43 @@ public class PlayerMovevent : MonoBehaviour
         }
         if (GameManager.inst.inputManager.Giocatore.Salto.ReadValue<float>() > 0f) //a ogni frame aumenta il valore del salto che e' limitato dal clamp a inizio Update. Cambia il valore di maxJump se vuoi che salti piu' in alto
         {
+            transform.parent = null;
             jumpCharge += Time.deltaTime;
             isCharging = true;
         }
+
         if (GameManager.inst.inputManager.Giocatore.Salto.WasReleasedThisFrame())
         {
             if (isGrounded && isCharging)
             {
+                isGrabbed = false;
+                transform.parent = null;
                 velocity.y = Mathf.Sqrt(jumpCharge * -6 * gravity);
                 jumpCharge = 0f;
                 isCharging = false;
             }
             else if (!hasDoubleJumped && inAir)
             {
+                transform.parent = null;
+                isGrabbed = false;
                 velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
                 hasDoubleJumped = true;
             }
 
-            
+            if (GameManager.inst.inputManager.Giocatore.Interazione.WasPressedThisFrame() && !isGrabbed)
+            {
+                Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactionRange, grabbableLayer);
+
+                foreach (Collider collider in hitColliders)
+                {
+                    if (collider.CompareTag("Grab"))
+                    {
+                        transform.parent = collider.transform;
+                        isGrabbed = true;
+                        Debug.Log("grabbato");
+                    }
+                }
+            }
         }
         
         if (GameManager.inst.inputManager.Giocatore.Nuoto.WasPressedThisFrame() && inWater) //a fare da trigger non e' il terreno sotto ma l'acqua in trigger che sta di mezzo tra i due
@@ -187,4 +210,19 @@ public class PlayerMovevent : MonoBehaviour
             dashTimer = 0f;
         }
     }
+
+    /*private void GrabHinge()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactionRange, grabbableLayer);
+
+        foreach (Collider collider in hitColliders)
+        {
+            if (collider.CompareTag("Grab"))
+            {
+                transform.parent = collider.transform;
+                isGrabbed = true;
+                Debug.Log("grabbato");
+            }
+        }
+    }*/
 }
