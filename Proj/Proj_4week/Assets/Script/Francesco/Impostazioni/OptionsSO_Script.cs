@@ -20,7 +20,7 @@ public class OptionsSO_Script : ScriptableObject
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
-    public void OpenChooseScene(int buildIndex)
+    public void OpenChosenScene(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex);
     }
