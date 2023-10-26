@@ -5,21 +5,25 @@ using UnityEngine;
 public class FishEnemyScript : Enemy
 {
     [Space(20)]
-    [SerializeField] Rigidbody fish_rb;
+    [SerializeField] Rigidbody fishRb;
+    [SerializeField] Transform fishModel;
     [SerializeField] Transform playerTr;
     Transform fishTr/*,
               playerTr*/;
 
-    [Header("-")]
+    [Header("—— Azioni ——")]
     [SerializeField] Transform returnPoint;
     [Min(0)]
-    [SerializeField] float returnVel;
+    [SerializeField] float returnVel = 5;
     [Min(0.1f)]
-    [SerializeField] float jumpForce;
-    [SerializeField] Vector2 secToWaitRange = new Vector2(1, 5);
+    [SerializeField] float jumpForce = 8.5f;
+    [SerializeField] Vector2 secToWaitRange = new Vector2(0.1f, 1);
 
     bool canReturn,
          canJump = true;
+
+    [Header("—— Feedback ——")]
+    [SerializeField] ParticleSystem fishJump_part;
 
 
     #region Costanti
@@ -32,7 +36,7 @@ public class FishEnemyScript : Enemy
 
     void Awake()
     {
-        fishTr = fish_rb.transform;
+        fishTr = fishRb.transform;
         canReturn = true;
     }
 
@@ -40,14 +44,16 @@ public class FishEnemyScript : Enemy
     {
         if (canJump)
         {
-
             //Calcola la direzione del giocatore
-            Vector3 playerDir = (playerTr.position - fishTr.position).normalized;
+            Vector3 playerDir = (playerTr.position - returnPoint.position).normalized;
 
             //if ()
             //{
-                //Spinge il pesce verso ------------------------------
-                fish_rb.AddForce(playerDir * jumpForce, ForceMode.Impulse);
+                //Fa saltare il pesce verso il giocatore
+                fishRb.AddForce(playerDir * jumpForce, ForceMode.Impulse);
+
+                //Feedback
+                Instantiate(fishJump_part, fishTr.position, Quaternion.identity);
 
                 //Reset della variabile
                 canJump = false;
@@ -57,15 +63,14 @@ public class FishEnemyScript : Enemy
         //Se può tornare al suo punto iniziale
         if (canReturn)
         {
-            fish_rb.isKinematic = true;
-
             //Muove il pesce verso il suo punto di ritorno
             fishTr.position = Vector3.MoveTowards(fishTr.position,
                                                    returnPoint.position,
                                                    Time.deltaTime * returnVel);
-            
+
             //Fa guardare il pesce sempre verso il punto di ritorno
-            fishTr.LookAt(returnPoint);
+            fishModel.LookAt(returnPoint);
+
 
 
             float fishDist = Vector3.Distance(fishTr.position, returnPoint.position);
@@ -73,26 +78,41 @@ public class FishEnemyScript : Enemy
             //Se è arrivato a destinazione...
             if (fishDist <= MIN_DIST)
             {
-                //
-                fish_rb.isKinematic = false;
-
                 //Fa guardare il pesce nella stessa direzione del punto
-                fishTr.rotation = returnPoint.rotation;
+                fishModel.rotation = returnPoint.rotation;
 
                 //Reset delle variabili
-                canJump = true;
+                float randomSec = Random.Range(secToWaitRange.x, secToWaitRange.y);
+                Invoke(nameof(SetTrueCanJump), randomSec);
+
                 canReturn = false;
             }
+
+        }
+        else
+        {
+            //Ruota il pesce sempre verso la sua velocità
+            fishModel.rotation = Quaternion.LookRotation(fishRb.velocity);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == fish_rb.gameObject)
+        if (other.gameObject == fishRb.gameObject)
         {
-            canReturn = true;
+            Invoke(nameof(SetTrueCanReturn), 0.15f);
             canJump = false;
         }
+    }
+
+    void SetTrueCanJump()
+    {
+        canJump = true;
+    }
+
+    void SetTrueCanReturn()
+    {
+        canReturn = true;
     }
 
 
@@ -111,6 +131,14 @@ public class FishEnemyScript : Enemy
 
 
     #region EXTRA - Gizmo
+
+    private void OnDrawGizmos()
+    {
+        Vector3 dir = (playerTr.position - returnPoint.position).normalized;
+        
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(returnPoint.position, dir * jumpForce / 2);
+    }
 
     private void OnDrawGizmosSelected()
     {
