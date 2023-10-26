@@ -36,8 +36,6 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
-        Vector3 playerPos = playerObj.transform.position;
-
         string saveString = "";
 
 
@@ -45,13 +43,11 @@ public class SaveManager : MonoBehaviour
 
         saveString += STATS_TITLE + "\n";
 
-        saveString += 3 /*stats_SO.GetHealth()*/ + "\n";    //Aggiunge gli HP
-
         //Aggiunge "checkpoint" (livello e posizione)
         saveString += SceneManager.GetActiveScene().buildIndex + "\n";
-        saveString += playerPos.x + "\n";
-        saveString += playerPos.y + "\n";
-        saveString += playerPos.z + "\n";
+        saveString += stats_SO.GetCheckpointPos().x + "\n";
+        saveString += stats_SO.GetCheckpointPos().y + "\n";
+        saveString += stats_SO.GetCheckpointPos().z + "\n";
 
         #endregion
 
@@ -90,19 +86,19 @@ public class SaveManager : MonoBehaviour
 
         #region Prodotto finale
         /*  0:  ### STATS ###
-         *  1:  HP giocatore
-         *  2:  Livello
-         *  3:  Posizione X giocatore
-         *  4:  Posizione Y giocatore
-         *  5:  Posizione Z giocatore
-         *  6:  
-         *  7:  ### SCORE ###
-         *  8:  Punteggio (tot)
-         *  9:  
-         * 10:  ### OPTIONS ###
-         * 11:  Volume musica
-         * 12:  Volume effetti sonori
-         * 13:  Schermo intero
+         *  1:  Livello
+         *  2:  Checkpoint - Posizione X
+         *  3:  Checkpoint - Posizione Y
+         *  4:  Checkpoint - Posizione Z
+         *  5:  
+         *  6:  ### SCORE ###
+         *  7:  Punteggio (tot)
+         *  8:  
+         *  9:  ### OPTIONS ###
+         * 10:  Volume musica
+         * 11:  Volume effetti sonori
+         * 12:  Schermo intero
+         * 13:  
          * 14:  
          * 15:  
          * 16:  
@@ -197,19 +193,15 @@ public class SaveManager : MonoBehaviour
               + ": "
               + fileReading[i_stats + 1]);
         //Trasforma da string a int
-        int hp_load = int.Parse(fileReading[i_stats + 1]),
-            level_load = int.Parse(fileReading[i_stats + 2]);
-        float posX_load = float.Parse(fileReading[i_stats + 3]),
-              posY_load = float.Parse(fileReading[i_stats + 4]),
-              posZ_load = float.Parse(fileReading[i_stats + 5]);
-
-        //Load della vita del giocatore
-        //stats_SO.LoadHealth(hp_load);
+        int level_load = int.Parse(fileReading[i_stats + 1]);
+        float posX_load = float.Parse(fileReading[i_stats + 2]),
+              posY_load = float.Parse(fileReading[i_stats + 3]),
+              posZ_load = float.Parse(fileReading[i_stats + 4]);
 
         //Carica il livello e l'ultima posizione del giocatore
-        //opt_SO.OpenChosenScene(level_load);
-        playerObj.transform.position = new Vector3(posX_load, posY_load, posZ_load);
-        print(new Vector3(posX_load, posY_load, posZ_load));
+        //(e avvisa che si sta caricando dal livello)
+        opt_SO.OpenChosenScene(level_load);
+        stats_SO.LoadCheckpointPos(new Vector3(posX_load, posY_load, posZ_load));
 
         #endregion
 
@@ -273,13 +265,4 @@ public class SaveManager : MonoBehaviour
 
         return modifiedData;
     }
-}
-
-
-
-
-class PlayerStatsSO_Script 
-{
-    public void AddScore(int score)
-    { }
 }
