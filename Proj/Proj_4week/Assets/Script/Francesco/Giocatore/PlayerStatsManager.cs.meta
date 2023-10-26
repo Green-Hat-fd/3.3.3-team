@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 82376cb1f56fe96439a64230981ce15a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
+  - pauseScr: {instanceID: 0}
+  - deathSfx: {instanceID: 0}
+  - gameOverCanvas: {instanceID: 0}
+  - jumpSfx: {instanceID: 0}
+  - damageSfx: {instanceID: 0}
+  - powUpPickUpSfx: {instanceID: 0}
+  - collectablePickUpSfx: {instanceID: 0}
+  - scoreTxt: {instanceID: 0}
+  - healthBar: {instanceID: 0}
+  - livesTxt: {instanceID: 0}
+  - ammoSlider: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

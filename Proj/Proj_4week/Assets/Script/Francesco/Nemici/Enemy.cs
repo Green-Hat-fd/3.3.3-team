@@ -29,9 +29,9 @@ public class Enemy : MonoBehaviour, IEnemy
     private void OnCollisionEnter(Collision collision)
     {
         GameObject collObj = collision.gameObject;
-        //IPlayer playerCheck = collObj.GetComponent<IPlayer>();
+        IPlayer playerCheck = collObj.GetComponent<IPlayer>();
 
-        //if (playerCheck != null)    //Se ha colliso con il giocatore
+        if (playerCheck != null)    //Se ha colliso con il giocatore
         {
             //Danneggia il giocatore
             //collObj.GetComponent<PlayerStatsManager>().Pl_TakeDamage();
