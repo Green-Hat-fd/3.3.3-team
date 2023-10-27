@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour, IEnemy
         if (playerCheck != null)    //Se ha colliso con il giocatore
         {
             //Danneggia il giocatore
-            //collObj.GetComponent<PlayerStatsManager>().Pl_TakeDamage();
+            collObj.GetComponent<PlayerStatsManager>().Pl_TakeDamage();
         }
     }
 
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
 
         //Feedback
-        deathSfx.PlayOneShot(deathSfx.clip);
+        damageSfx.PlayOneShot(damageSfx.clip);
 
 
         En_CheckDeath();
@@ -63,6 +63,9 @@ public class Enemy : MonoBehaviour, IEnemy
         {
             //Aggiunge il punteggio al giocatore
             stats_SO.AddScore(scoreAtDeath);
+
+            //Feedback
+            deathSfx.PlayOneShot(deathSfx.clip);
 
             //Nasconde il nemico
             gameObject.SetActive(false);
