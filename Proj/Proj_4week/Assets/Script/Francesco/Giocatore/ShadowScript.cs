@@ -14,7 +14,7 @@ public class ShadowScript : MonoBehaviour
     bool canShowShadow;
     RaycastHit hitShadow;
 
-    [Header("")]
+    [Header("—— Cambio dimensione ombra ——")]
     [SerializeField] Vector2 scaleRange = new Vector2(0.5f, 1f);
 
 
