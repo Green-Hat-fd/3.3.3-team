@@ -133,7 +133,7 @@ public class CameraRotScript : MonoBehaviour
         if (dist <= 0.01f)
             playerPos = playerToFollow.position;
 
-        cameraMasterPivot.localPosition = playerPos;
+        cameraMasterPivot.position = playerPos;
     }
 
 
