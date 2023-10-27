@@ -33,126 +33,130 @@ public class PlayerMovevent : MonoBehaviour
     [SerializeField] private float speedBonus = 9f;
     [SerializeField] private float speedStandard = 6f;
     [SerializeField] private float speedDecreese = 3f;
-
+    private bool hasBeaten = false;
     [SerializeField] private float interactionRange = 2.0f; // Regola la distanza di interazione
     [SerializeField] private LayerMask grabbableLayer;
-    private bool isGrabbed = false;
+    //private bool isGrabbed = false;
 
     void Update()
     {
-        jumpCharge = Mathf.Clamp(jumpCharge, 0f, maxJumpCharge);
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        float horizontal = GameManager.inst.inputManager.Giocatore.Movimento.ReadValue<Vector2>().x;
-        float vertical = GameManager.inst.inputManager.Giocatore.Movimento.ReadValue<Vector2>().y;
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-
-        if (direction.magnitude >= 0.1f)
+        if (!hasBeaten)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            jumpCharge = Mathf.Clamp(jumpCharge, 0f, maxJumpCharge);
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            float horizontal = GameManager.inst.inputManager.Giocatore.Movimento.ReadValue<Vector2>().x;
+            float vertical = GameManager.inst.inputManager.Giocatore.Movimento.ReadValue<Vector2>().y;
+            Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            if (direction.magnitude >= 0.1f)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            isMoving = true;
+                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+
+                controller.Move(moveDir.normalized * speed * Time.deltaTime);
+
+                isMoving = true;
             
-        }
+            }
         
-        else { isMoving = false; }
+            else { isMoving = false; }
 
-        if (!isMoving)
-        {
-            speed = speedStandard;
-        }
-
-        if (GameManager.inst.inputManager.Giocatore.Corsa.WasPressedThisFrame() && isMoving && isGrounded && !isRunning) //dopo esser stato premuto una volta aumenta la velocita' finche' non ci si ferma. Ovviamente non funziona in acqua
-        {
-             isRunning = true;
-             speed = speedBonus;
-        }
-
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-
-        if (isGrounded)
-        {
-            hasDoubleJumped = false;
-            inAir = false;
-        }
-        else
-        {
-            inAir = true;
-        }
-        if (GameManager.inst.inputManager.Giocatore.Salto.ReadValue<float>() > 0f) //a ogni frame aumenta il valore del salto che e' limitato dal clamp a inizio Update. Cambia il valore di maxJump se vuoi che salti piu' in alto
-        {
-            transform.parent = null;
-            jumpCharge += Time.deltaTime;
-            isCharging = true;
-        }
-
-        if (GameManager.inst.inputManager.Giocatore.Salto.WasReleasedThisFrame())
-        {
-            if (isGrounded && isCharging)
+            if (!isMoving)
             {
-                isGrabbed = false;
-                transform.parent = null;
-                velocity.y = Mathf.Sqrt(jumpCharge * -6 * gravity);
-                jumpCharge = 0f;
-                isCharging = false;
-            }
-            else if (!hasDoubleJumped && inAir)
-            {
-                transform.parent = null;
-                isGrabbed = false;
-                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-                hasDoubleJumped = true;
+                speed = speedStandard;
             }
 
-            if (GameManager.inst.inputManager.Giocatore.Interazione.WasPressedThisFrame() && !isGrabbed)
+            if (GameManager.inst.inputManager.Giocatore.Corsa.WasPressedThisFrame() && isMoving && isGrounded && !isRunning) //dopo esser stato premuto una volta aumenta la velocita' finche' non ci si ferma. Ovviamente non funziona in acqua
             {
-                Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactionRange, grabbableLayer);
-
-                foreach (Collider collider in hitColliders)
-                {
-                    if (collider.CompareTag("Grab"))
-                    {
-                        transform.parent = collider.transform;
-                        isGrabbed = true;
-                        Debug.Log("grabbato");
-                    }
-                }
+                isRunning = true;
+                speed = speedBonus;
             }
-        }
-        
-        if (GameManager.inst.inputManager.Giocatore.Nuoto.WasPressedThisFrame() && inWater) //a fare da trigger non e' il terreno sotto ma l'acqua in trigger che sta di mezzo tra i due
-        {
-            Vector3 camForward = Vector3.Scale(transform.forward, new Vector3(1, 0, 1)).normalized;
-            dashDirection = camForward;
-            Vector3 dashDestination = transform.position + dashDirection * dashDistance;
 
-            if (!Physics.Raycast(transform.position, dashDirection, dashDistance))
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+
+            if (isGrounded)
             {
-                isDashing = true;
-                dashTimer = 0f;
-            }
-        }
-
-        if (isDashing)
-        {
-            dashTimer += Time.deltaTime;
-
-            if (dashTimer >= dashDuration)
-            {
-                isDashing = false;
+                hasDoubleJumped = false;
+                inAir = false;
             }
             else
             {
-                controller.Move(dashDirection * Time.deltaTime * dashDistance / dashDuration);
+                inAir = true;
             }
+            if (GameManager.inst.inputManager.Giocatore.Salto.ReadValue<float>() > 0f) //a ogni frame aumenta il valore del salto che e' limitato dal clamp a inizio Update. Cambia il valore di maxJump se vuoi che salti piu' in alto
+            {
+                transform.parent = null;
+                jumpCharge += Time.deltaTime;
+                isCharging = true;
+            }
+
+            if (GameManager.inst.inputManager.Giocatore.Salto.WasReleasedThisFrame())
+            {
+                if (isGrounded && isCharging)
+                {
+                    //isGrabbed = false;
+                    transform.parent = null;
+                    velocity.y = Mathf.Sqrt(jumpCharge * -6 * gravity);
+                    jumpCharge = 0f;
+                    isCharging = false;
+                }
+                else if (!hasDoubleJumped && inAir)
+                {
+                    transform.parent = null;
+                    //isGrabbed = false;
+                    velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+                    hasDoubleJumped = true;
+                }
+
+               
+                    Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactionRange, grabbableLayer);
+
+                    foreach (Collider collider in hitColliders)
+                    {
+                        if (collider.CompareTag("Grab"))
+                        {
+                            transform.parent = collider.transform;
+                            //isGrabbed = true;
+                            Debug.Log("grabbato");
+                        }
+                    }
+            
+            }
+        
+            if (GameManager.inst.inputManager.Giocatore.Nuoto.WasPressedThisFrame() && inWater) //a fare da trigger non e' il terreno sotto ma l'acqua in trigger che sta di mezzo tra i due
+            {
+                Vector3 camForward = Vector3.Scale(transform.forward, new Vector3(1, 0, 1)).normalized;
+                dashDirection = camForward;
+                Vector3 dashDestination = transform.position + dashDirection * dashDistance;
+
+                if (!Physics.Raycast(transform.position, dashDirection, dashDistance))
+                {
+                    isDashing = true;
+                    dashTimer = 0f;
+                }
+            }
+
+            if (isDashing)
+            {
+                dashTimer += Time.deltaTime;
+
+                if (dashTimer >= dashDuration)
+                {
+                    isDashing = false;
+                }
+                else
+                {
+                    controller.Move(dashDirection * Time.deltaTime * dashDistance / dashDuration);
+                }
+            }
+
         }
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -178,25 +182,10 @@ public class PlayerMovevent : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            hasBeaten = true;
             DamageDash();
         }
     }
-    /*
-    private IEnumerator PerformDash(Vector3 destination, float speed)
-    {
-        float startTime = Time.time;
-        float journeyLength = Vector3.Distance(transform.position, destination);
-
-        while (transform.position != destination)
-        {
-            float distanceCovered = (Time.time - startTime) * speed;
-            float journeyFraction = distanceCovered / journeyLength;
-            transform.position = Vector3.Lerp(transform.position, destination, journeyFraction);
-            yield return null;
-        }
-
-        isDashing = false;
-    }*/
 
     private void DamageDash()
     {
@@ -209,6 +198,7 @@ public class PlayerMovevent : MonoBehaviour
             isDashing = true;
             dashTimer = 0f;
         }
+        hasBeaten = false;
     }
 
     /*private void GrabHinge()

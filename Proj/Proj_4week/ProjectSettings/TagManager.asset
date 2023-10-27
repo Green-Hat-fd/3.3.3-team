@@ -9,6 +9,7 @@ TagManager:
   - Water
   - Enemy
   - Grab
+  - Attack
   layers:
   - Default
   - TransparentFX

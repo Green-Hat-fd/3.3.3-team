@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
             canShoot = false;
         }
 
-        if (GameManager.inst.inputManager.Giocatore.MeleeAtk.WasPressedThisFrame())
+        if (GameManager.inst.inputManager.Giocatore.MeleeAtk.WasPressedThisFrame() && !isAttacking)
         {
             isAttacking = true;
             attacco.SetActive(true);
