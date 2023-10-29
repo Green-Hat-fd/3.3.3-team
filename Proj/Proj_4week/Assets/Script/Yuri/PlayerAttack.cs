@@ -17,8 +17,10 @@ public class PlayerAttack : MonoBehaviour
         attacco.SetActive(false);
     }
 
-    void Update()
+    void FixedUpdate()
     {
+       if (!DialogoScript.dialogueActive)
+       {
         ricarica = Mathf.Clamp(ricarica, 0, 1);
         ricarica += 0.5f * Time.deltaTime;
 
@@ -45,6 +47,7 @@ public class PlayerAttack : MonoBehaviour
             GameObject bullet = Instantiate(proiettilePrefab, puntoSparo.transform.position, puntoSparo.transform.rotation);
             bullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, velocitaProiettile));
         }
+       }
     }
 
     void DisableAttack()

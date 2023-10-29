@@ -13,6 +13,7 @@ public class PlayerMovevent : MonoBehaviour
     [SerializeField] private float turnSmoothTime = 0.1f; //il movimento e' gestito per far girare il player in base alla camera, cambia questo valore per aumentare la rotazione
     private float turnSmoothVelocity;
     [SerializeField] private float gravity = -9.81f;
+    
     [SerializeField] private float jumpHeight = 3f; //serve preincipalmente per l'altezza del doppio salto
     private bool hasDoubleJumped = false;
     Vector3 velocity;
@@ -23,24 +24,22 @@ public class PlayerMovevent : MonoBehaviour
     [SerializeField] private float maxJumpCharge = 2f; //modifica questo valore per aumentare la carica del salto
     private bool isCharging;
     private bool inWater;
+
     private bool isDashing = false;
     private float dashDuration = 0.5f;
     private float dashTimer;
     [SerializeField] private float dashDistance = 3.0f; //serve per la spinta in acqua soltanto
     private Vector3 dashDirection;
+
     private bool isMoving;
     private bool isRunning = false;
     [SerializeField] private float speedBonus = 9f;
     [SerializeField] private float speedStandard = 6f;
     [SerializeField] private float speedDecreese = 3f;
-    private bool hasBeaten = false;
-    [SerializeField] private float interactionRange = 2.0f; // Regola la distanza di interazione
-    [SerializeField] private LayerMask grabbableLayer;
-    //private bool isGrabbed = false;
 
     void Update()
     {
-        if (!hasBeaten)
+        if (!PauseMenu.gameIsPaused || !DialogoScript.dialogueActive)
         {
             jumpCharge = Mathf.Clamp(jumpCharge, 0f, maxJumpCharge);
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -60,9 +59,9 @@ public class PlayerMovevent : MonoBehaviour
                 controller.Move(moveDir.normalized * speed * Time.deltaTime);
 
                 isMoving = true;
-            
+
             }
-        
+
             else { isMoving = false; }
 
             if (!isMoving)
@@ -112,22 +111,8 @@ public class PlayerMovevent : MonoBehaviour
                     velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
                     hasDoubleJumped = true;
                 }
-
-               
-                    Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactionRange, grabbableLayer);
-
-                    foreach (Collider collider in hitColliders)
-                    {
-                        if (collider.CompareTag("Grab"))
-                        {
-                            transform.parent = collider.transform;
-                            //isGrabbed = true;
-                            Debug.Log("grabbato");
-                        }
-                    }
-            
             }
-        
+
             if (GameManager.inst.inputManager.Giocatore.Nuoto.WasPressedThisFrame() && inWater) //a fare da trigger non e' il terreno sotto ma l'acqua in trigger che sta di mezzo tra i due
             {
                 Vector3 camForward = Vector3.Scale(transform.forward, new Vector3(1, 0, 1)).normalized;
@@ -156,7 +141,7 @@ public class PlayerMovevent : MonoBehaviour
             }
 
         }
-        
+        else { }
     }
 
     private void OnTriggerStay(Collider other)
@@ -182,7 +167,7 @@ public class PlayerMovevent : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            hasBeaten = true;
+            
             DamageDash();
         }
     }
@@ -198,7 +183,7 @@ public class PlayerMovevent : MonoBehaviour
             isDashing = true;
             dashTimer = 0f;
         }
-        hasBeaten = false;
+        
     }
 
     /*private void GrabHinge()

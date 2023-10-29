@@ -31,6 +31,8 @@ public class RagnoIA : MonoBehaviour
 
     void Update()
     {
+      if (!PauseMenu.gameIsPaused)
+       {
         if (!isStopped)
         {
             Distance = Vector3.Distance(target.position, transform.position);
@@ -67,6 +69,8 @@ public class RagnoIA : MonoBehaviour
                 Patrol();
             }
         }
+      }
+        
     }
 
 

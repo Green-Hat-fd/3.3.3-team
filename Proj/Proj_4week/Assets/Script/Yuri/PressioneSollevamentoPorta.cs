@@ -9,6 +9,12 @@ public class PressioneSollevamentoPorta : MonoBehaviour
     private int itemsInTrigger = 0; //servira' per dare un effetto sonoro quando la porta sara' abbastanza alta
     [SerializeField] private float numeroNecessario;
     //[SerializeField] private AudioSource suonoOk;
+    [SerializeField] private TextMeshPro richiesta;
+
+    private void Update()
+    {
+       richiesta.text = "Oggetti Necessari: " + numeroNecessario.ToString();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
