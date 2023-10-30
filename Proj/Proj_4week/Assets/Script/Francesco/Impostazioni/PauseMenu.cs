@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    bool gameIsPaused = false;
+    public static bool gameIsPaused = false;
     [SerializeField] GameObject pauseMenuUI;
 
     [SerializeField] List<MonoBehaviour> scriptToBlock;
@@ -27,7 +27,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (GameManager.inst.inputManager.Generali.Pausa.WasPressedThisFrame())
         {
             if (gameIsPaused)
             {

@@ -17,8 +17,10 @@ public class PlayerAttack : MonoBehaviour
         attacco.SetActive(false);
     }
 
-    void Update()
+    void FixedUpdate()
     {
+       if (!DialogoScript.dialogueActive)
+       {
         ricarica = Mathf.Clamp(ricarica, 0, 1);
         ricarica += 0.5f * Time.deltaTime;
 
@@ -31,7 +33,7 @@ public class PlayerAttack : MonoBehaviour
             canShoot = false;
         }
 
-        if (GameManager.inst.inputManager.Giocatore.MeleeAtk.WasPressedThisFrame())
+        if (GameManager.inst.inputManager.Giocatore.MeleeAtk.WasPressedThisFrame() && !isAttacking)
         {
             isAttacking = true;
             attacco.SetActive(true);
@@ -42,9 +44,10 @@ public class PlayerAttack : MonoBehaviour
         {
             ricarica = 0;
             canShoot = false;
-            GameObject bullet = Instantiate(proiettilePrefab, transform.position, transform.rotation);
-            bullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, velocitaProiettile, 0));
+            GameObject bullet = Instantiate(proiettilePrefab, puntoSparo.transform.position, puntoSparo.transform.rotation);
+            bullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, velocitaProiettile));
         }
+       }
     }
 
     void DisableAttack()

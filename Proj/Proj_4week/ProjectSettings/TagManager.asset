@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Item
   - Water
+  - Enemy
+  - Grab
+  - Attack
   layers:
   - Default
   - TransparentFX
@@ -15,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Item
-  - 
+  - Grab
   - 
   - 
   - 
