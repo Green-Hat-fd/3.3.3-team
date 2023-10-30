@@ -1,26 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class RagnoIA : MonoBehaviour
+public class VespaSparo : MonoBehaviour
 {
     private float Distance;
     private Transform target;
     public float lookAtDistance = 15.0f;
     public float attackRange = 12.0f;
-    public float patrolRadius = 10.0f; // Raggio in cui il ragno perlustra
+    public float patrolRadius = 10.0f;
+    public float stopRadius = 5.0f;
     public float moveSpeed = 5.0f;
     public float Damping = 6.0f;
     public float obstacleCheckDistance = 1.5f;
     [SerializeField] private GameObject player;
     private bool isAttacking = false;
-    private bool isStopped = false;
-    private bool isLoking = false;
-    private Vector3 randomPatrolPoint; // Il punto casuale di perlustrazione
+    private bool inSight = false;
+    private Vector3 randomPatrolPoint;
+
+    [SerializeField] private GameObject bulletPrefab;
+    public Transform firePoint;
+    public float fireRate = 0.4f; // Un colpo ogni 3 secondi
+    private float lastFireTime;
+    [SerializeField] private float bulletSpeed = 80;
 
     private bool isPatrolling = false;
     public float patrolInterval = 5.0f; // Intervallo tra le azioni di perlustrazione
-
 
     private void Awake()
     {
@@ -30,10 +36,10 @@ public class RagnoIA : MonoBehaviour
 
     void LookAt()
     {
-        if (isLoking) 
-        {
-            var rotation = Quaternion.LookRotation(target.position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Damping);
+        if (inSight) 
+        { 
+        var rotation = Quaternion.LookRotation(target.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Damping);            
         }
 
     }
@@ -42,47 +48,45 @@ public class RagnoIA : MonoBehaviour
     {
         if (!PauseMenu.gameIsPaused)
         {
-            if (!isStopped)
+            Distance = Vector3.Distance(target.position, transform.position);
+
+            if (Distance < lookAtDistance)
             {
-                Distance = Vector3.Distance(target.position, transform.position);
-                if (Distance < lookAtDistance)
-                {
-                    isLoking = true;
-                    LookAt();
-                }
+                inSight = true;
+                LookAt();
+            }
 
-                if (Distance < attackRange)
-                {
-                    isAttacking = true;
-                }
-                else
-                {
-                    isAttacking = false;
-                }
-
-                if (isAttacking)
-                {
-                    moveSpeed = 5.0f;
-                    Attack();
-                }
-                else
-                {
-                    if (!isPatrolling)
-                    {
-                        StartCoroutine(PatrolWithDelay(patrolInterval));
-                    }
-                }
+            if (Distance < attackRange)
+            {
+                inSight = true;
+                isAttacking = true;
             }
             else
             {
-                // Se il giocatore esce dal range di attacco, riprendi la perlustrazione.
-                if (Distance > attackRange)
+                isAttacking = false;
+            }
+
+            if (isAttacking)
+            {
+                Attack();
+            }
+            else
+            {
+                if (!isPatrolling)
                 {
-                    isAttacking = false;
-                    if (!isPatrolling)
-                    {
-                        StartCoroutine(PatrolWithDelay(patrolInterval));
-                    }
+                    StartCoroutine(PatrolWithDelay(patrolInterval));
+                }
+            }
+        }
+        else
+        {
+            // Se il giocatore esce dal range di attacco, riprendi la perlustrazione.
+            if (Distance > attackRange)
+            {
+                isAttacking = false;
+                if (!isPatrolling)
+                {
+                    StartCoroutine(PatrolWithDelay(patrolInterval));
                 }
             }
         }
@@ -116,7 +120,6 @@ public class RagnoIA : MonoBehaviour
         }
     }
 
-
     bool IsBlocked()
     {
         // Controlla se ci sono ostacoli davanti al ragno.
@@ -124,20 +127,21 @@ public class RagnoIA : MonoBehaviour
         return Physics.Raycast(ray, obstacleCheckDistance);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            isStopped = true;
-            StartCoroutine(StopForSeconds(2.0f));
-        }
-    }
-
     void Attack()
     {
-        isLoking = false;
-        // Logica di attacco del ragno
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        inSight = false;
+        if (Time.time - lastFireTime >= 1 / fireRate)
+        {
+            if (Distance > stopRadius)
+            {
+                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            }
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            rb.velocity = (target.position - firePoint.position).normalized * bulletSpeed;
+
+            lastFireTime = Time.time; // Aggiorna il tempo dell'ultimo sparo
+        }
     }
 
     void SetRandomPatrolPoint()
@@ -145,11 +149,5 @@ public class RagnoIA : MonoBehaviour
         // Genera un punto casuale all'interno del raggio di perlustrazione.
         randomPatrolPoint = transform.position + Random.insideUnitSphere * patrolRadius;
         randomPatrolPoint.y = transform.position.y; // Mantieni la stessa altezza.
-    }
-
-    IEnumerator StopForSeconds(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        isStopped = false;
     }
 }
