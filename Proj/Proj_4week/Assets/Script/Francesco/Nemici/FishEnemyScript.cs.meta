@@ -3,7 +3,15 @@ guid: 49bbc7ccb4d843a4ba86360fd41e2256
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
+  - damageSfx: {instanceID: 0}
+  - deathSfx: {instanceID: 0}
+  - fishRb: {instanceID: 0}
+  - fishModel: {instanceID: 0}
+  - playerTr: {instanceID: 0}
+  - returnPoint: {instanceID: 0}
+  - fishJump_part: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
