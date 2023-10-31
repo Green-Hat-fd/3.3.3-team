@@ -15,7 +15,8 @@ public class BossScript : Enemy
     [SerializeField] float invulnerablePhaseSec = 45;
 
     int phaseNum = 1;
-    bool isInvincible = false;
+    bool isInvincible = false,
+         canLookPlayer = true;
 
     Collider bossColl;
     GameObject player;
@@ -60,6 +61,13 @@ public class BossScript : Enemy
 
     void Update()
     {
+        if (canLookPlayer)
+        {
+            //Guarda sempre il giocatore
+            head.LookAt(player.transform);
+        }
+
+
         #region Cambio della fase ogni tot tempo
 
         if (doOnce_switchPhase)
@@ -134,10 +142,6 @@ public class BossScript : Enemy
 
                     StartCoroutine(EnableShootAttack());
                 }
-                
-                //Guarda sempre il giocatore
-                head.LookAt(player.transform);
-
 
                 //Ferma l'altro attacco
                 StopCoroutine(EnableMeleeAttack());
@@ -213,6 +217,10 @@ public class BossScript : Enemy
     }
 
 
+    public void SetCanLookPlayer(bool value)
+    {
+        canLookPlayer = value;
+    }
     public void SetPlayer(GameObject newPlayer)
     {
         player = newPlayer;
