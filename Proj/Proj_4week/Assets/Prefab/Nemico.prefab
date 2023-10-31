@@ -157,3 +157,4 @@ MonoBehaviour:
   Damping: 6
   obstacleCheckDistance: 1.5
   player: {fileID: 0}
+  patrolInterval: 0.01
