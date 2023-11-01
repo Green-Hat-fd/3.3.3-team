@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Grab
   - Attack
+  - Key
   layers:
   - Default
   - TransparentFX
