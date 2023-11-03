@@ -11,7 +11,6 @@ public class SaveManager : MonoBehaviour
     [Header("—— Variabili delle informazioni ——")]
     [SerializeField] PlayerStatsSO_Script stats_SO;
     [SerializeField] OptionsSO_Script opt_SO;
-    [SerializeField] GameObject playerObj;
 
     [Space(20)]
     [SerializeField] string fileName = "utility";
@@ -21,7 +20,7 @@ public class SaveManager : MonoBehaviour
 
     const string STATS_TITLE = "# STATS #",
                  SCORE_TITLE = "# SCORE #",
-                 X_TITLE = "# ___ #",
+                 OTHERS_TITLE = "# OTHERS #",
                  OPTIONS_TITLE = "# OPTIONS #";
     
     
@@ -56,7 +55,7 @@ public class SaveManager : MonoBehaviour
 
         saveString += "\n" + SCORE_TITLE + "\n";
 
-        saveString += 0 /*stats_SO.GetScore()*/ + "\n";   //Aggiunge il punteggio
+        saveString += stats_SO.GetScore() + "\n";   //Aggiunge il punteggio
 
         #endregion
 
@@ -69,6 +68,18 @@ public class SaveManager : MonoBehaviour
         saveString += opt_SO.GetMusicVolume_Percent() + "\n";
         saveString += opt_SO.GetSoundVolume_Percent() + "\n";
         saveString += opt_SO.GetIsFullscreen() + "\n";
+
+        #endregion
+
+
+        #region -- Altro --
+
+        saveString += "\n" + OTHERS_TITLE + "\n";
+
+        foreach (bool isButterflyTaken in stats_SO.GetButterflyCollected())
+        {
+            saveString += isButterflyTaken + "\n";   //Aggiunge ogni farfalla
+        }
 
         #endregion
 
@@ -99,11 +110,11 @@ public class SaveManager : MonoBehaviour
          * 11:  Volume effetti sonori
          * 12:  Schermo intero
          * 13:  
-         * 14:  
-         * 15:  
-         * 16:  
-         * 17:  
-         * 18:  
+         * 14:  ### OTHERS ###
+         * 15:  Collez. 1 raccolto
+         * 16:  Collez. 2 raccolto
+         * 17:  Collez. 3 raccolto
+         * 18:  Collez. 4 raccolto
          * 19:  
          * 20:  
          * 21:  
@@ -130,7 +141,8 @@ public class SaveManager : MonoBehaviour
 
         int i_stats = 0,
             i_score = 0,
-            i_options = 0;
+            i_options = 0,
+            i_others = 0;
 
 
         //Se il file esiste...
@@ -171,12 +183,12 @@ public class SaveManager : MonoBehaviour
                     i_score = i;
                     break;
 
-                case X_TITLE:
-                    //i_playcount = i;
-                    break;
-
                 case OPTIONS_TITLE:
                     i_options = i;
+                    break;
+
+                case OTHERS_TITLE:
+                    i_others = i;
                     break;
             }
         }
@@ -187,11 +199,6 @@ public class SaveManager : MonoBehaviour
 
         #region -- Stats Giocatore --
 
-        print(i_stats
-              + " / "
-              + i_stats + 1
-              + ": "
-              + fileReading[i_stats + 1]);
         //Trasforma da string a int
         int level_load = int.Parse(fileReading[i_stats + 1]);
         float posX_load = float.Parse(fileReading[i_stats + 2]),
@@ -228,6 +235,20 @@ public class SaveManager : MonoBehaviour
         opt_SO.ChangeMusicVolume(musicVol_load);
         opt_SO.ChangeSoundVolume(soundVol_load);
         opt_SO.ToggleFullscreen(fullscreen_load);
+
+        #endregion
+
+
+        #region -- Altro --
+
+        for (int b = 0; b < stats_SO.GetButterflyCollected().Count; b++)
+        {
+            //Trasforma da bool a int per ogni farfalla
+            bool butterfly_load = bool.Parse(fileReading[i_others + b + 1]);
+
+            //Load di ogni farfalla
+            stats_SO.LoadButterflyCollected(b, butterfly_load);
+        }
 
         #endregion
     }

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 21ed0a56051dfd642b8b0c205388ebe4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
+  - damageSfx: {instanceID: 0}
+  - deathSfx: {instanceID: 0}
+  - options_SO: {fileID: 11400000, guid: 33497d08385e46449bf7c4d706b933d0, type: 2}
+  - attackCollider: {instanceID: 0}
+  - bulletToShoot: {instanceID: 0}
+  - shoot_spawnPoint: {instanceID: 0}
+  - head: {instanceID: 0}
+  - deathPart: {instanceID: 0}
+  - meleeAtkSfx: {instanceID: 0}
+  - shootSfx: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

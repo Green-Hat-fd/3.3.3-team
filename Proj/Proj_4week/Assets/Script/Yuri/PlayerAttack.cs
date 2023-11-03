@@ -55,4 +55,9 @@ public class PlayerAttack : MonoBehaviour
         attacco.SetActive(false);
         isAttacking = false;
     }
+
+    public void SetCanShoot(bool value)
+    {
+        canShoot = value;
+    }
 }

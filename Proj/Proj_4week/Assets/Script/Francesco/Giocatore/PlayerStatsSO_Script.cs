@@ -7,6 +7,9 @@ public class PlayerStatsSO_Script : ScriptableObject
 {
     [SerializeField] int score;
 
+    [Header("—— Collezionabili ——")]
+    [SerializeField] List<bool> butterflyCollected;
+
     [Header("—— Salvataggio ——")]
     [SerializeField] Vector3 checkpointPos = Vector3.zero;
     [Space(10)]
@@ -19,6 +22,11 @@ public class PlayerStatsSO_Script : ScriptableObject
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
+    }
+
+    public void SetButterflyCollected(int index, bool value)
+    {
+        butterflyCollected[index] = value;
     }
 
     public void SetCheckpointPos(Vector3 newPos)
@@ -34,12 +42,19 @@ public class PlayerStatsSO_Script : ScriptableObject
         isLoadingASave = true;
     }
 
+    public void LoadButterflyCollected(int index, bool value)
+    {
+        butterflyCollected[index] = value;
+    }
+
     #endregion
 
 
     #region Funz. Get personalizzate
 
     public int GetScore() => score;
+
+    public List<bool> GetButterflyCollected() => butterflyCollected;
 
     public Vector3 GetCheckpointPos() => checkpointPos;
 

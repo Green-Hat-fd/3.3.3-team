@@ -4,6 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
   - opt_SO: {fileID: 11400000, guid: 33497d08385e46449bf7c4d706b933d0, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
