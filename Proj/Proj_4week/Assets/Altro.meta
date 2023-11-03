@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Proj/Proj_4week/Assets/Altro.meta
 guid: 7806fdf2df81ba247b2b2b77aef136e5
+========
+guid: 8106ae3f6ea31c842acc5a0b5ad3a2c6
+>>>>>>>> Develop:Proj/Proj_4week/Assets/Immagini/z_Test.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
