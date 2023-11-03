@@ -7,12 +7,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
-    [SerializeField] GameObject pauseMenuUI;
+    [SerializeField] GameObject pauseMenuUI, optionButton, resumeButton, quitButton;
 
     [SerializeField] List<MonoBehaviour> scriptToBlock;
 
@@ -55,7 +56,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
-
+        SelectResume();
         EnableAllScripts(false);
     }
 
@@ -75,7 +76,26 @@ public class PauseMenu : MonoBehaviour
     
     public void QuitGame()
     {
-        Debug.Log("Quitting game");
+        Debug.Log("Quit game");
         Application.Quit();
+    }
+
+    public void SelectOption()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(optionButton);
+
+    }
+
+    public void SelectResume()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(resumeButton);
+    }
+
+    public void SelectQuit()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(quitButton);
     }
 }
