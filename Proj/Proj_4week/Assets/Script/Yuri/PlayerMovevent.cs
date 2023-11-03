@@ -22,6 +22,7 @@ public class PlayerMovevent : MonoBehaviour
     public LayerMask groundMask;
     [SerializeField] private float jumpCharge; //per vedere dall'inspector se sta caricando, non va modificato
     [SerializeField] private float maxJumpCharge = 2f; //modifica questo valore per aumentare la carica del salto
+    private float _maxJumpCharge;
     private bool isCharging;
     private bool inWater;
 
@@ -37,11 +38,16 @@ public class PlayerMovevent : MonoBehaviour
     [SerializeField] private float speedStandard = 6f;
     [SerializeField] private float speedDecreese = 3f;
 
+    void Awake()
+    {
+        _maxJumpCharge = maxJumpCharge;
+    }
+
     void Update()
     {
         if (!PauseMenu.gameIsPaused || !DialogoScript.dialogueActive)
         {
-            jumpCharge = Mathf.Clamp(jumpCharge, 0f, maxJumpCharge);
+            jumpCharge = Mathf.Clamp(jumpCharge, 0f, _maxJumpCharge);
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
             float horizontal = GameManager.inst.inputManager.Giocatore.Movimento.ReadValue<Vector2>().x;
@@ -184,6 +190,16 @@ public class PlayerMovevent : MonoBehaviour
             dashTimer = 0f;
         }
         
+    }
+
+    public void DoubleMaxJumpCharge()
+    {
+        _maxJumpCharge *= 2;
+    }
+
+    public void ResetMaxJumpCharge()
+    {
+        _maxJumpCharge = maxJumpCharge;
     }
 
     /*private void GrabHinge()

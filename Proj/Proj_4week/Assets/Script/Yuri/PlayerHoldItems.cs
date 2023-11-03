@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class PlayerHoldItems : MonoBehaviour
 {
+    public PlayerStatsSO_Script stats_SO;
+    public PlayerAttack attackScr;
+    public PlayerMovevent moveventScr;
+
     public float pickupRange = 3f;
     public float heldItemHeight = 1f;
     public float placementSpeed = 10f;
-    public LayerMask itemLayerMask;
+    public LayerMask itemLayerMask,
+                     powerUpLayerMask,
+                     collectableLayerMask;
     public GameObject itemContainer;
     private GameObject heldItem;
     private bool isHoldingItem = false;
@@ -45,12 +51,47 @@ public class PlayerHoldItems : MonoBehaviour
 
     private void PickUpItem()
     {
-        RaycastHit hit;
+        RaycastHit itemHit, powerUpHit, collectableHit;
         Debug.DrawRay(transform.position, transform.forward * pickupRange, Color.green, 1.0f);
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, pickupRange, itemLayerMask))
+        //Power up
+        if (Physics.Raycast(transform.position, transform.forward, out powerUpHit, pickupRange, powerUpLayerMask))
         {
-            heldItem = hit.collider.gameObject;
+            PowerUp powUpScr = powerUpHit.transform.GetComponent<PowerUp>();
+            PowerUp.PowUpType_Enum type = powUpScr.GetPowerUpType();
+            int score = powUpScr.GetScoreWhenCollected();
+
+            switch (type)
+            {
+                case PowerUp.PowUpType_Enum.FireShoot:
+                    attackScr.SetCanShoot(true);
+                    break;
+                
+                case PowerUp.PowUpType_Enum.AmplifiedJump:
+                    moveventScr.DoubleMaxJumpCharge();
+                    break;
+            }
+
+            stats_SO.AddScore(score);   //aggiunge il punteggio
+            powerUpHit.transform.gameObject.SetActive(false);
+        }
+
+        //Collezionabile
+        if (Physics.Raycast(transform.position, transform.forward, out collectableHit, pickupRange, collectableLayerMask))
+        {
+            CollectableScript collScr = collectableHit.transform.GetComponent<CollectableScript>();
+            int i = collScr.GetCollectableIndex();
+            int score = collScr.GetScoreWhenCollected();
+
+            stats_SO.SetButterflyCollected(i, true);   //aggiunge il collezionabile come raccolto
+            stats_SO.AddScore(score);   //aggiunge il punteggio
+            collectableHit.transform.gameObject.SetActive(false);   //Nasconde il collezionabile
+        }
+
+        //Oggetto
+        if (Physics.Raycast(transform.position, transform.forward, out itemHit, pickupRange, itemLayerMask))
+        {
+            heldItem = itemHit.collider.gameObject;
             heldItem.GetComponent<Rigidbody>().isKinematic = true;
             heldItem.GetComponent<Collider>().enabled = false;
             heldItem.transform.SetParent(itemContainer.transform);
