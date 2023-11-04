@@ -13,6 +13,7 @@ public class DialogoScript : MonoBehaviour
     [SerializeField] private float textSpeed = 0.3f;
     private int indice;
     public static bool dialogueActive;
+    public Animator animator;
 
     /*private void Start()
     {
@@ -23,6 +24,11 @@ public class DialogoScript : MonoBehaviour
             Dialogo();
         }
     }*/
+    private void Start()
+    {
+        dialogueActive = false;
+        message.SetActive(false);
+    }
 
     void Update()
     {
@@ -56,6 +62,7 @@ public class DialogoScript : MonoBehaviour
             {
                 dialogoPanel.SetActive(true);
                 dialogueActive = true;
+                animator.SetBool("dialogoAttivo", true);
                 Dialogo();
             }
         }
@@ -67,6 +74,7 @@ public class DialogoScript : MonoBehaviour
         {
             message.SetActive(false);
             dialogueActive = false;
+            animator.SetBool("dialogoAttivo", false);
             dialogoPanel.SetActive(false);
         }
     }
@@ -98,6 +106,7 @@ public class DialogoScript : MonoBehaviour
         }
         else
         {
+            animator.SetBool("dialogoAttivo", false);
             dialogueActive = false;
         }
     }

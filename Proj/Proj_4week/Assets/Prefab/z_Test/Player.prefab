@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 817926605}
   m_Layer: 0
   m_Name: Attack
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 1231959676381638543}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -382,10 +382,6 @@ MonoBehaviour:
   speedBonus: 9
   speedStandard: 6
   speedDecreese: 3
-  interactionRange: 2
-  grabbableLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &243822945270582381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,12 +442,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10e397a496020c46a90e3abd445534f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats_SO: {fileID: 0}
+  attackScr: {fileID: 0}
+  moveventScr: {fileID: 0}
   pickupRange: 3
   heldItemHeight: 1
   placementSpeed: 10
   itemLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  powerUpLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  collectableLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   itemContainer: {fileID: 243822946125060174}
 --- !u!114 &1630571754
 MonoBehaviour:
