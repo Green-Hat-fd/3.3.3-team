@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class SpriteCameraFollow : MonoBehaviour
 {
+    public Camera cameraToFollow;
+
     Vector3 cameraDir;
 
     void Update()
     {
-        cameraDir = Camera.main.transform.forward;
-        cameraDir.y = 0;
+        if (cameraToFollow != null)
+        {
+            cameraDir = cameraToFollow.transform.forward;
+            cameraDir.y = 0;
 
-        transform.rotation = Quaternion.LookRotation(cameraDir);
+            transform.rotation = Quaternion.LookRotation(cameraDir);
+        }
     }
 }

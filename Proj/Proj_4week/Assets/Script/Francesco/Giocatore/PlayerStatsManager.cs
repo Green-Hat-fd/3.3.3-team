@@ -36,7 +36,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
     [SerializeField] AudioSource deathSfx;
     [SerializeField] Color invColor = new Color(1, 1, 1, 0.5f);
     [SerializeField] List<SpriteRenderer> playerSprites;
-    [SerializeField] Canvas gameOverCanvas;
+    [SerializeField] GameObject gameOverCanvas;
 
     [Space(10)]
     [SerializeField] AudioSource jumpSfx;
@@ -97,7 +97,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
         scoreTxt.text = stats_SO.GetScore() + "";
 
         //Cambia la barra della vita (health)
-        healthBar.value = (float)health / maxHealth;
+        //healthBar.value = (float)health / maxHealth;
 
 
         //Cambia il testo delle vite (lives)
