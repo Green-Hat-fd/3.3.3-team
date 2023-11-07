@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7723205714135158060}
   - component: {fileID: 654996375243950684}
   - component: {fileID: 4185880064217539518}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Modello
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5524538202393407820}
   - component: {fileID: 5524538202393407825}
   - component: {fileID: 440845115652039696}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Power-Up salto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5106430139538388079}
   - component: {fileID: 6896207846113308733}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PickUp Sfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629280658466120185}
   - component: {fileID: 5218516051588584089}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Halo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5524538202393407820}
   - component: {fileID: 5524538202393407825}
   - component: {fileID: 8219352310107647337}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collezionabile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 1647856292669571678}
   - component: {fileID: 7528632552947469033}
   - component: {fileID: 2289544379005839143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eb29eb90a462c44bbccc99c8e83d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraToFollow: {fileID: 0}
 --- !u!1 &7030940466745101496
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5106430139538388079}
   - component: {fileID: 6896207846113308733}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PickUp Sfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629280658466120185}
   - component: {fileID: 5218516051588584089}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
