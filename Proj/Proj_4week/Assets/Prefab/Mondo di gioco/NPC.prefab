@@ -217,7 +217,8 @@ MonoBehaviour:
   testi:
   - Se il gatto va a gattoni...
   - ...come va il coyote?
-  textSpeed: 1
+  textSpeed: 0.01
+  animator: {fileID: 0}
 --- !u!1 &2083827295567942719
 GameObject:
   m_ObjectHideFlags: 0

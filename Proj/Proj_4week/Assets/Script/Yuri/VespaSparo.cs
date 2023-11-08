@@ -28,6 +28,8 @@ public class VespaSparo : MonoBehaviour
     private bool isPatrolling = false;
     public float patrolInterval = 5.0f; // Intervallo tra le azioni di perlustrazione
 
+    [SerializeField] private Animator anim;
+
     private void Awake()
     {
         target = player.transform;
@@ -139,7 +141,7 @@ public class VespaSparo : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
             rb.velocity = (target.position - firePoint.position).normalized * bulletSpeed;
-
+            //anim.SetTrigger("onAttack");
             lastFireTime = Time.time; // Aggiorna il tempo dell'ultimo sparo
         }
     }
