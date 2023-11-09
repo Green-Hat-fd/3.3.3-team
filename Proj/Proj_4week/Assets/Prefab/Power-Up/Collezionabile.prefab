@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5524538202393407820}
   - component: {fileID: 5524538202393407825}
   - component: {fileID: 8219352310107647337}
+  - component: {fileID: 2519830270044109326}
   m_Layer: 8
   m_Name: Collezionabile
   m_TagString: Untagged
@@ -63,6 +64,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collIndex: 0
   scoreWhenCollected: 500
+--- !u!114 &2519830270044109326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524538202393407831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5eb29eb90a462c44bbccc99c8e83d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraToFollow: {fileID: 0}
 --- !u!1 &6228313231291172104
 GameObject:
   m_ObjectHideFlags: 0

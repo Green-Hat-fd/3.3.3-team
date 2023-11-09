@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7441656462589099780}
   - component: {fileID: 7441656462589099783}
   - component: {fileID: 7441656462589099782}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7441656462928970169}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Prova PiattafSem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7441656463079790378}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piv2
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 7441656463080692738}
   - component: {fileID: 7441656463080692749}
   - component: {fileID: 7441656463080692748}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7441656463476955093}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piv1
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -325,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7441656464070502229}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piv5
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -356,7 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7441656464345041602}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piv3
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -387,7 +387,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7441656464530529460}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piv4
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
