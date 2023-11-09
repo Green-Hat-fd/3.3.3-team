@@ -1052,6 +1052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eb29eb90a462c44bbccc99c8e83d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraToFollow: {fileID: 0}
 --- !u!212 &841837657
 SpriteRenderer:
   m_ObjectHideFlags: 0
