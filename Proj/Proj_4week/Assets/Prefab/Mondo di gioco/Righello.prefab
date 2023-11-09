@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8636365985819918680}
   - component: {fileID: 4841928583472478696}
   - component: {fileID: 4476060260323026253}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Righello
   m_TagString: Untagged
   m_Icon: {fileID: 0}

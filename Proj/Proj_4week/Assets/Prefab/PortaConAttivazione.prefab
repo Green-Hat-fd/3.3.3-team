@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5390391594302518787}
   - component: {fileID: 863077100625347844}
   - component: {fileID: 5447688699213878013}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PCModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 4319592008787896593}
   - component: {fileID: 4319592008787896606}
   - component: {fileID: 4319592008787896607}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PulsanteAttivazione
   m_TagString: Untagged
   m_Icon: {fileID: 0}

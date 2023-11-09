@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9185580791109271492}
   - component: {fileID: 9185580791109271493}
   - component: {fileID: 2472283684948612425}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tazza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
