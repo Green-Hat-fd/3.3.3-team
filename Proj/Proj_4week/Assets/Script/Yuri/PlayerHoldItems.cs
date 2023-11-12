@@ -7,6 +7,7 @@ public class PlayerHoldItems : MonoBehaviour
     public PlayerStatsSO_Script stats_SO;
     public PlayerAttack attackScr;
     public PlayerMovevent moveventScr;
+    public PlayerAnimationManager animMng;
 
     public float pickupRange = 3f;
     public float heldItemHeight = 1f;
@@ -41,6 +42,8 @@ public class PlayerHoldItems : MonoBehaviour
                     PickUpItem();
                 }
                 pickupCooldown = 0.5f;
+
+                animMng.TriggerShootTongue();
             }
             else
             {
@@ -123,4 +126,7 @@ public class PlayerHoldItems : MonoBehaviour
         isHoldingItem = false;
         heldItem = null;
     }
+
+
+    public bool GetIsHoldingItem() => isHoldingItem;
 }

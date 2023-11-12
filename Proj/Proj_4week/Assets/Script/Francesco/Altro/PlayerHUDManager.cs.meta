@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6835edf5411ba1c498666b5b96d95ebf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
+  - statsMng: {instanceID: 0}
+  - scoreTxt: {instanceID: 0}
+  - healthSpr: {instanceID: 0}
+  - healthLostSpr: {instanceID: 0}
+  - livesTxt: {instanceID: 0}
+  - ammoSlider: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

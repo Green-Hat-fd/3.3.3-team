@@ -5,7 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Objects/Player Stats (S.O.)", fileName = "PlayerStats_SO")]
 public class PlayerStatsSO_Script : ScriptableObject
 {
+    [SerializeField] int maxLives = 5;
     [SerializeField] int score;
+    int lives;
 
     [Header("—— Collezionabili ——")]
     [SerializeField] List<bool> butterflyCollected;
@@ -18,6 +20,11 @@ public class PlayerStatsSO_Script : ScriptableObject
 
 
     #region Funz. Set personalizzate
+
+    public void RemoveLife()
+    {
+        lives--;
+    }
 
     public void AddScore(int scoreToAdd)
     {
@@ -52,6 +59,8 @@ public class PlayerStatsSO_Script : ScriptableObject
 
     #region Funz. Get personalizzate
 
+    public int GetLives() => lives;
+
     public int GetScore() => score;
 
     public List<bool> GetButterflyCollected() => butterflyCollected;
@@ -64,6 +73,11 @@ public class PlayerStatsSO_Script : ScriptableObject
 
 
     #region Funzioni Reset
+
+    public void ResetLives()
+    {
+        lives = maxLives;
+    }
 
     public void ResetScore()
     {
