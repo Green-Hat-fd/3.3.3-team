@@ -143,6 +143,8 @@ public class VespaSparo : MonoBehaviour
             rb.velocity = (target.position - firePoint.position).normalized * bulletSpeed;
             //anim.SetTrigger("onAttack");
             lastFireTime = Time.time; // Aggiorna il tempo dell'ultimo sparo
+
+            anim.SetTrigger("attack");
         }
     }
 

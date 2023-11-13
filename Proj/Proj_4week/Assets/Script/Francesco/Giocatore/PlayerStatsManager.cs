@@ -10,6 +10,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
     //PlayerMovRB playerMovScr;
 
     [SerializeField] PlayerStatsSO_Script stats_SO;
+    [SerializeField] PlayerAnimationManager animMng;
     [SerializeField] PauseMenu pauseScr;
 
     [Space(20)]
@@ -17,8 +18,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
     [SerializeField] float yMinDeath = -10;
     [Min(1)]
     [SerializeField] int maxHealth = 3;
-    int health,
-        lives;
+    int health;
     bool canBeDamaged,
          isDead;
 
@@ -44,16 +44,6 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
     [SerializeField] AudioSource powUpPickUpSfx;
     [Space(5)]
     [SerializeField] AudioSource collectablePickUpSfx;
-
-    [Header("—— UI ——")]
-    [SerializeField] Text scoreTxt;
-
-    [Space(10)]
-    [SerializeField] Slider healthBar;
-    [SerializeField] Text livesTxt;
-
-    [Space(10)]
-    [SerializeField] Slider ammoSlider;
 
     [Header("—— DEBUG ——")]
     [SerializeField] float deathZoneSize = 15;
@@ -88,23 +78,6 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
         {
             SetHealthToZero();
         }
-
-
-
-        #region Cambiare l'HUD
-
-        //Cambio del testo (punteggio)
-        scoreTxt.text = stats_SO.GetScore() + "";
-
-        //Cambia la barra della vita (health)
-        //healthBar.value = (float)health / maxHealth;
-
-
-        //Cambia il testo delle vite (lives)
-        livesTxt.text = "x" + lives;
-
-        #endregion
-
 
 
         #region Feedback
@@ -146,6 +119,8 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
                 damageSfx.pitch = Random.Range(0.8f, 1.75f);
                 damageSfx.Play();
 
+                animMng.TriggerDamage();    //Animazione
+
                 #endregion
 
 
@@ -168,9 +143,12 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
 
         if (canDie && !isDead)   //Se si puo' uccidere
         {
-            lives--;    //Toglie una vita
+            stats_SO.RemoveLife();    //Toglie una vita
 
             isDead = true;
+
+
+            animMng.TriggerDeath();    //Animazione
 
 
             ResetAllPowerUps();
@@ -178,7 +156,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
             pauseScr.EnableAllScripts(false);    //Disabilita tutti gli script
 
 
-            if (lives <= 0)    //Se NON hai più vite
+            if (stats_SO.GetLives() <= 0)    //Se NON hai più vite
             {
                 Pl_Die();
 
@@ -299,7 +277,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
 
 
 
-    public bool GetIsDead() => isDead;
+    public int GetHealth() => health;
 
 
 
@@ -318,7 +296,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
     void ResetAllHealthVariables()
     {
         health = maxHealth;
-        lives = 5;
+        stats_SO.ResetLives();
 
         canBeDamaged = true;
         isDead = false;

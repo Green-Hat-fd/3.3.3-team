@@ -1,0 +1,629 @@
+fileFormatVersion: 2
+guid: 665d09ebe2f9e2741b29ddb23636928d
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Head' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.4
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 0
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: TPose(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: distanceDimension1
+      parentName: TPose(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: distanceDimension2
+      parentName: TPose(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Tutto
+      parentName: TPose(Clone)
+      position: {x: -0, y: 0, z: 0.20668171}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Testa
+      parentName: Tutto
+      position: {x: -0, y: 1.2319999, z: -0.14401357}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle1
+      parentName: Testa
+      position: {x: -0, y: 0.4692715, z: 0.0000000027086002}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: topnurbsSquare1attachedCurve2
+      parentName: Testa
+      position: {x: -0, y: 0.9529808, z: 0.4200265}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle6
+      parentName: topnurbsSquare1attachedCurve2
+      position: {x: -0, y: -0.06639209, z: -0.08553071}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle42
+      parentName: Testa
+      position: {x: -0, y: 0.4692715, z: 0.0000000027086002}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Braccio_Sinistro
+      parentName: Tutto
+      position: {x: -0.54840004, y: 0.96805876, z: -0.18639673}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locator7
+      parentName: Braccio_Sinistro
+      position: {x: -0.00026397707, y: -0.0005948067, z: -0.008907418}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle37
+      parentName: Braccio_Sinistro
+      position: {x: -0.0002639794, y: -0.0005947769, z: -0.008907418}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mano_Sinistra
+      parentName: Braccio_Sinistro
+      position: {x: -0.06550431, y: -0.03449831, z: 0.006782198}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dito_Sinistro2
+      parentName: Mano_Sinistra
+      position: {x: -0.09429212, y: -0.0614954, z: -3.8857805e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle40
+      parentName: Dito_Sinistro2
+      position: {x: -0.0009345704, y: 0.0017186685, z: 0.0011874066}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dito_Sinistro1
+      parentName: Mano_Sinistra
+      position: {x: 0.017370034, y: -0.1315178, z: -4.440892e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle41
+      parentName: Dito_Sinistro1
+      position: {x: -0.0012244027, y: 0.0018660683, z: 0.009288444}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dito_Sinistro3
+      parentName: Mano_Sinistra
+      position: {x: -0.098741725, y: 0.058373548, z: -2.220446e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle39
+      parentName: Dito_Sinistro3
+      position: {x: -0.00026737142, y: 0.000900934, z: -0.00786917}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locator8
+      parentName: Mano_Sinistra
+      position: {x: 0.00006599427, y: -0.00068721775, z: -0.015662063}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle38
+      parentName: Mano_Sinistra
+      position: {x: -0.00015626375, y: -0.00080523913, z: -0.015661968}
+      rotation: {x: -0.009102062, y: 0.037341963, z: 0.96966136, w: -0.24141182}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Braccio_Destro
+      parentName: Tutto
+      position: {x: 0.54841197, y: 0.96805876, z: -0.18639673}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locator6
+      parentName: Braccio_Destro
+      position: {x: 0.000000047683717, y: 0.0000012397767, z: 0.0000014618039}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mano_Destra
+      parentName: Braccio_Destro
+      position: {x: 0.06549239, y: -0.03449831, z: 0.006782198}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dito_Destro3
+      parentName: Mano_Destra
+      position: {x: -0.017370034, y: -0.1315178, z: -2.7755576e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle35
+      parentName: Dito_Destro3
+      position: {x: -0.0000000114593695, y: 0.000000030914304, z: -0.000000001340449}
+      rotation: {x: 0.8336934, y: -0.49021137, z: 0.24382532, w: 0.072092906}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dito_Destro2
+      parentName: Mano_Destra
+      position: {x: 0.09429212, y: -0.0614954, z: -2.7755576e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle34
+      parentName: Dito_Destro2
+      position: {x: -0.0000000106506475, y: 0.000000038848864, z: 7.9478835e-10}
+      rotation: {x: 0.77478284, y: -0.5690593, z: 0.2754576, w: -0.002485607}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dito_Destro1
+      parentName: Mano_Destra
+      position: {x: 0.08894555, y: 0.05334256, z: -0.0022480849}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle33
+      parentName: Dito_Destro1
+      position: {x: 0.00000001257325, y: -0.000000032714862, z: 1.5186051e-10}
+      rotation: {x: 0.84310883, y: -0.476414, z: 0.24454822, w: 0.048921954}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locator5
+      parentName: Mano_Destra
+      position: {x: -0.000000333786, y: -0.00000047683716, z: 0.0000017434359}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle32
+      parentName: Mano_Destra
+      position: {x: -0.00013021629, y: -0.0008058666, z: -0.015689617}
+      rotation: {x: 0.2424562, y: 0.97016233, z: 3.4350688e-16, w: -2.0614238e-16}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle36
+      parentName: Braccio_Destro
+      position: {x: 0.0002533558, y: -0.0005931657, z: -0.008907418}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Centro
+      parentName: Tutto
+      position: {x: -0, y: 1.044951, z: -0.20668171}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Centro
+      parentName: Centro
+      position: {x: -0, y: -0.000000032370306, z: 0.06266815}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pipo
+      parentName: Centro
+      position: {x: -0, y: -0.12408342, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Gamba_SN
+      parentName: Pipo
+      position: {x: -0.108469896, y: -0.0684619, z: 0}
+      rotation: {x: 0.46899077, y: 0.52511185, z: 0.4838575, w: 0.51979524}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: Ginocchio_SN
+      parentName: Gamba_SN
+      position: {x: -0.3374864, y: 0.0050793225, z: -8.099609e-11}
+      rotation: {x: 0.000000074505806, y: -0.000000014901161, z: 0.08921479, w: 0.99601245}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1}
+    - name: Caviglia_SN
+      parentName: Ginocchio_SN
+      position: {x: -0.34627223, y: -0.0062397565, z: 1.4279937e-10}
+      rotation: {x: 0.05495464, y: -0.052669954, z: -0.72760284, w: 0.6817625}
+      scale: {x: 0.9999999, y: 0.9999997, z: 0.99999994}
+    - name: Ball_SN
+      parentName: Caviglia_SN
+      position: {x: -0.17358749, y: -0.09304102, z: 0.01229471}
+      rotation: {x: -0.06564029, y: -0.00066231185, z: -0.010065587, w: 0.99779236}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: Punta_SN
+      parentName: Ball_SN
+      position: {x: -0.17560811, y: -0.06771039, z: -1.9984015e-16}
+      rotation: {x: -0, y: -0, z: -2.1100274e-10, w: 1}
+      scale: {x: 1.0000004, y: 1, z: 1.0000002}
+    - name: Gamba_DS
+      parentName: Pipo
+      position: {x: 0.10235367, y: -0.0684619, z: 0}
+      rotation: {x: 0.53509754, y: 0.4772047, z: -0.51892245, w: -0.4654738}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: Ginocchio_DS
+      parentName: Gamba_DS
+      position: {x: -0.3374364, y: -0.005519247, z: -8.099609e-11}
+      rotation: {x: -0, y: -0, z: 0.10601708, w: -0.9943644}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: Caviglia_DS
+      parentName: Ginocchio_DS
+      position: {x: -0.34639928, y: 0.0073735057, z: 1.4279937e-10}
+      rotation: {x: 0.5059988, y: 0.5080998, z: -0.44289452, w: 0.5381862}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.9999999}
+    - name: Ball_DS
+      parentName: Caviglia_DS
+      position: {x: 0.0072519756, y: -0.096080214, z: 0.17358749}
+      rotation: {x: 0.031667512, y: 0.7062189, z: -0.03338283, w: 0.70649666}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: Punta_DS
+      parentName: Ball_DS
+      position: {x: -0.17560811, y: -0.07867416, z: 0}
+      rotation: {x: -0.000000005587934, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Spalle
+      parentName: Centro
+      position: {x: -0, y: 0.12755923, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Braccio_DS
+      parentName: Spalle
+      position: {x: 0.2088404, y: -0.026406152, z: -0.042383194}
+      rotation: {x: -0.6685192, y: 0.279425, z: 0.050624613, w: 0.6873434}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: Gomito_DS
+      parentName: Braccio_DS
+      position: {x: 0.18722272, y: -0.08810481, z: 0.0000010175977}
+      rotation: {x: -0.05893034, y: -0.112366624, z: -0.001183048, w: 0.99191713}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: Polso_DS
+      parentName: Gomito_DS
+      position: {x: 0.15692346, y: -0.08229189, z: -0.0005917609}
+      rotation: {x: 0.16723342, y: 0.6664443, z: 0.70621234, w: 0.1707313}
+      scale: {x: 0.9991053, y: 0.9999999, z: 0.9999999}
+    - name: Palmo_DS
+      parentName: Polso_DS
+      position: {x: -0.07384965, y: 5.551115e-18, z: -9.0439734e-18}
+      rotation: {x: 0.6273433, y: -0.7787375, z: -0.0006945355, w: -0.0027787082}
+      scale: {x: 0.9991048, y: 0.9999998, z: 1}
+    - name: transform6
+      parentName: Palmo_DS
+      position: {x: 0.00012999952, y: 0.00080539985, z: 0.01569136}
+      rotation: {x: 0.6203528, y: -0.22170825, z: 0.3316262, w: 0.6753014}
+      scale: {x: 0.9992063, y: 1.0006801, z: 1.000114}
+    - name: joint68
+      parentName: transform6
+      position: {x: 0.047869645, y: 0.0489813, z: 0.011523707}
+      rotation: {x: -0.09121609, y: 0.020557845, z: 0.14287573, w: 0.985314}
+      scale: {x: 1.0002235, y: 0.99970686, z: 1.00007}
+    - name: joint69
+      parentName: joint68
+      position: {x: 0.057195824, y: 0.025032977, z: 0.02136335}
+      rotation: {x: 0.0000000018626449, y: -0, z: 7.275957e-11, w: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000004}
+    - name: transform7
+      parentName: Palmo_DS
+      position: {x: 0.00012999952, y: 0.00080539985, z: 0.01569136}
+      rotation: {x: 0.81710184, y: -0.524607, z: 0.23718253, w: 0.02960696}
+      scale: {x: 0.9992063, y: 1.0006801, z: 1.000114}
+    - name: joint70
+      parentName: transform7
+      position: {x: 0.039026096, y: -0.023842571, z: 0.023857243}
+      rotation: {x: 0.41540325, y: 0.5396924, z: 0.0033477098, w: 0.7322302}
+      scale: {x: 1.0002064, y: 0.9997257, z: 1.0000688}
+    - name: joint71
+      parentName: joint70
+      position: {x: 0.04459148, y: -0.030787135, z: 0.028062684}
+      rotation: {x: -0, y: -0, z: 1.1641531e-10, w: 1}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000006}
+    - name: transform8
+      parentName: Palmo_DS
+      position: {x: 0.00012999952, y: 0.00080539985, z: 0.01569136}
+      rotation: {x: 0.5289095, y: -0.50117874, z: 0.32631546, w: -0.6021569}
+      scale: {x: 0.9992063, y: 1.0006801, z: 1.000114}
+    - name: joint72
+      parentName: transform8
+      position: {x: -0.018920248, y: -0.05166455, z: 0.0027710034}
+      rotation: {x: 0.07827913, y: -0.016226647, z: -0.17037174, w: 0.9821317}
+      scale: {x: 1.0001978, y: 0.99971426, z: 1.0000883}
+    - name: joint73
+      parentName: joint72
+      position: {x: 0.0029447225, y: -0.060508396, z: 0.015113513}
+      rotation: {x: -0, y: 0.0000000018626447, z: -5.8207647e-11, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000005}
+    - name: Braccio_SN
+      parentName: Spalle
+      position: {x: -0.2088404, y: -0.026406152, z: -0.042383194}
+      rotation: {x: 0.6872236, y: -0.050619453, z: 0.27946573, w: 0.66862565}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Gomito_SN
+      parentName: Braccio_SN
+      position: {x: -0.18722272, y: 0.08810481, z: -0.0000010175977}
+      rotation: {x: -0.058929507, y: -0.11236456, z: -0.0012244062, w: 0.9919174}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Polso_SN
+      parentName: Gomito_SN
+      position: {x: -0.1569231, y: 0.082291745, z: 0.0005937898}
+      rotation: {x: 0.17321001, y: 0.69309264, z: 0.6800015, w: 0.16498163}
+      scale: {x: 1.0025125, y: 1.0000002, z: 0.99999976}
+    - name: Palmo_SN
+      parentName: Polso_SN
+      position: {x: 0.07385104, y: -0.000004153267, z: 9.575674e-17}
+      rotation: {x: 0.53357196, y: -0.8440824, z: 0.012534362, w: 0.051660884}
+      scale: {x: 0.99910486, y: 1, z: 1.0000002}
+    - name: transform9
+      parentName: Palmo_SN
+      position: {x: -0.00012781563, y: -0.00079238246, z: -0.015691955}
+      rotation: {x: 0.6202763, y: -0.22148727, z: 0.33175325, w: 0.6753817}
+      scale: {x: 0.9992063, y: 1.0006801, z: 1.000114}
+    - name: joint80
+      parentName: transform9
+      position: {x: -0.04786442, y: -0.04897356, z: -0.01157814}
+      rotation: {x: 0.26076332, y: 0.09278665, z: -0.08226397, w: -0.95740575}
+      scale: {x: 0.99913585, y: 1.0008043, z: 1.0000609}
+    - name: joint81
+      parentName: joint80
+      position: {x: -0.057195812, y: -0.025032971, z: -0.021363389}
+      rotation: {x: 0.000000029802319, y: -0.0000000074505797, z: 0.00000008940696, w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1}
+    - name: transform10
+      parentName: Palmo_SN
+      position: {x: -0.00012781563, y: -0.00079238246, z: -0.015691955}
+      rotation: {x: 0.81710184, y: -0.524607, z: 0.23718253, w: 0.02960696}
+      scale: {x: 0.9992063, y: 1.0006801, z: 1.000114}
+    - name: joint82
+      parentName: transform10
+      position: {x: -0.039007317, y: 0.023854751, z: -0.023875715}
+      rotation: {x: -0.31859002, y: -0.6022586, z: -0.035289057, w: -0.7311222}
+      scale: {x: 0.9993925, y: 1.0008625, z: 0.9997459}
+    - name: joint83
+      parentName: joint82
+      position: {x: -0.04459146, y: 0.030787135, z: -0.028062714}
+      rotation: {x: 0.00000007450579, y: -0.0000000037252894, z: -0.000000025611365, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: transform11
+      parentName: Palmo_SN
+      position: {x: -0.00012781563, y: -0.00079238246, z: -0.015691955}
+      rotation: {x: 0.5290795, y: -0.5016176, z: 0.32532054, w: -0.60218036}
+      scale: {x: 0.9992063, y: 1.0006801, z: 1.000114}
+    - name: joint84
+      parentName: transform11
+      position: {x: 0.018925538, y: 0.05166446, z: -0.002736367}
+      rotation: {x: -0.06051071, y: 0.16798963, z: 0.14153554, w: -0.9736969}
+      scale: {x: 0.99930567, y: 1.0007318, z: 0.9999633}
+    - name: joint85
+      parentName: joint84
+      position: {x: -0.0029447095, y: 0.060508396, z: -0.01511351}
+      rotation: {x: 0.00000005075707, y: -0, z: -0.000000039115537, w: 1}
+      scale: {x: 0.99999976, y: 0.99999964, z: 1}
+    - name: Collo
+      parentName: Spalle
+      position: {x: -0, y: 0.05948968, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Faccia
+      parentName: Collo
+      position: {x: -0, y: 0.46927157, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Sopra
+      parentName: Faccia
+      position: {x: -0, y: 0.3289517, z: -0.0010857729}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Occhiali
+      parentName: Sopra
+      position: {x: -0, y: 0.088365495, z: 0.33558154}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Piede_Sinistro
+      parentName: Tutto
+      position: {x: -0.11014136, y: 0, z: 0.002068781}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locator9
+      parentName: Piede_Sinistro
+      position: {x: -0.000000011920929, y: 0.51582724, z: 0.6413324}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.2, y: 0.2, z: 0.2}
+    - name: joint40
+      parentName: Piede_Sinistro
+      position: {x: -0.00057286024, y: 0.024255004, z: -0.14351808}
+      rotation: {x: 2.1684037e-17, y: -0.0000000372529, z: 5.8207655e-10, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: joint41
+      parentName: joint40
+      position: {x: -0.23025349, y: -0.012455091, z: 0.25945428}
+      rotation: {x: 3.9464964e-16, y: 0.0000000372529, z: -0.000000019208528, w: 1}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1.0000002}
+    - name: ikHandle16
+      parentName: joint41
+      position: {x: -8.602452e-13, y: -1.3144885e-11, z: -0.014428389}
+      rotation: {x: -0.18296891, y: 0.9831187, z: -6.019866e-17, w: 1.1203615e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint42
+      parentName: joint41
+      position: {x: -0.18820974, y: 0, z: 2.1450173e-17}
+      rotation: {x: -1.110223e-15, y: -0, z: 0.000000018626451, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: ikHandle18
+      parentName: joint42
+      position: {x: -0.0010521499, y: -0.0005668885, z: -0.014378806}
+      rotation: {x: -0.24649243, y: 0.9660378, z: -0.073712066, w: -0.024064401}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint43
+      parentName: joint42
+      position: {x: -0.19786002, y: 7.771561e-17, z: -5.2735593e-17}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000002}
+    - name: ikHandle17
+      parentName: joint43
+      position: {x: 0.000000004623993, y: 0.0050126347, z: 3.9311596e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Piede_Destro
+      parentName: Tutto
+      position: {x: 0.11007359, y: 0, z: 0.002068781}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locator10
+      parentName: Piede_Destro
+      position: {x: -0.03083173, y: 0.51582724, z: 0.6413324}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.2, y: 0.2, z: 0.2}
+    - name: joint34
+      parentName: Piede_Destro
+      position: {x: -0, y: 0.024255004, z: -0.14351808}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
+    - name: joint35
+      parentName: joint34
+      position: {x: -0.346108, y: -0.023220943, z: -4.8439693e-17}
+      rotation: {x: -2.2204463e-15, y: 4.4408925e-15, z: 9.8607636e-30, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
+    - name: ikHandle21
+      parentName: joint35
+      position: {x: 0.0046023424, y: -0.009951011, z: -0.006348641}
+      rotation: {x: -0.2149104, y: 0.9766338, z: -1.5777954e-15, w: 3.4719732e-16}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint36
+      parentName: joint35
+      position: {x: -0.18780997, y: -0.012260549, z: 6.217249e-16}
+      rotation: {x: 4.440892e-15, y: -0, z: -0.000000018626453, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
+    - name: ikHandle20
+      parentName: joint36
+      position: {x: 4.393026e-11, y: -4.2517902e-11, z: -0.006348645}
+      rotation: {x: -0.099675484, y: 0.7000463, z: 0.16354935, w: 0.68793285}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint37
+      parentName: joint36
+      position: {x: -0.19570379, y: 0.02521109, z: 4.850536e-16}
+      rotation: {x: -0, y: -4.4408925e-15, z: 0.000000018626453, w: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
+    - name: ikHandle19
+      parentName: joint37
+      position: {x: -0.009697101, y: 0.0000014309655, z: 0.0000000025440776}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Braccio_Sinistroo
+      parentName: Tutto
+      position: {x: -0.396, y: 1.0579994, z: -0.61525184}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Braccio_Destroo
+      parentName: Tutto
+      position: {x: 0.3960637, y: 1.0579994, z: -0.61525184}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Corpo_insieme1
+      parentName: TPose(Clone)
+      position: {x: -0, y: 1.3772672, z: 0.044384386}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface2
+      parentName: TPose(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vagligia:pCube4
+      parentName: polySurface2
+      position: {x: 0.35719377, y: 0.7140527, z: 0.032812577}
+      rotation: {x: -0.04119705, y: 0.16287608, z: 0.09134938, w: 0.9815445}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface18
+      parentName: polySurface2
+      position: {x: -0, y: 2.2762475, z: 0.2893386}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface14
+      parentName: polySurface18
+      position: {x: -0, y: -0.17050277, z: 0.006840491}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface13
+      parentName: polySurface2
+      position: {x: -0, y: 1.2400397, z: 0.044384386}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface17
+      parentName: polySurface13
+      position: {x: -0, y: 0.9467152, z: 0.08864212}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.4
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

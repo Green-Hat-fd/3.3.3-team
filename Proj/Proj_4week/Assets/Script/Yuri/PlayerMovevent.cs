@@ -13,7 +13,7 @@ public class PlayerMovevent : MonoBehaviour
     [SerializeField] private float turnSmoothTime = 0.1f; //il movimento e' gestito per far girare il player in base alla camera, cambia questo valore per aumentare la rotazione
     private float turnSmoothVelocity;
     [SerializeField] private float gravity = -9.81f;
-    
+
     [SerializeField] private float jumpHeight = 3f; //serve preincipalmente per l'altezza del doppio salto
     private bool hasDoubleJumped = false;
     Vector3 velocity;
@@ -37,6 +37,8 @@ public class PlayerMovevent : MonoBehaviour
     [SerializeField] private float speedBonus = 9f;
     [SerializeField] private float speedStandard = 6f;
     [SerializeField] private float speedDecreese = 3f;
+
+    public PlayerAnimationManager animMng;
 
     void Awake()
     {
@@ -109,13 +111,18 @@ public class PlayerMovevent : MonoBehaviour
                     velocity.y = Mathf.Sqrt(jumpCharge * -6 * gravity);
                     jumpCharge = 0f;
                     isCharging = false;
+
+                    animMng.TriggerJump();
                 }
                 else if (!hasDoubleJumped && inAir)
                 {
                     transform.parent = null;
                     //isGrabbed = false;
                     velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+                    jumpCharge = 0f;
                     hasDoubleJumped = true;
+
+                    animMng.TriggerJump();
                 }
             }
 
@@ -173,14 +180,14 @@ public class PlayerMovevent : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            
+
             DamageDash();
         }
     }
 
     private void DamageDash()
     {
-        Vector3 camForward = Vector3.Scale(- transform.forward, new Vector3(1, 0, 1)).normalized;
+        Vector3 camForward = Vector3.Scale(-transform.forward, new Vector3(1, 0, 1)).normalized;
         dashDirection = camForward;
         Vector3 dashDestination = transform.position + dashDirection * dashDistance;
 
@@ -189,7 +196,7 @@ public class PlayerMovevent : MonoBehaviour
             isDashing = true;
             dashTimer = 0f;
         }
-        
+
     }
 
     public void DoubleMaxJumpCharge()
@@ -216,4 +223,19 @@ public class PlayerMovevent : MonoBehaviour
             }
         }
     }*/
+
+
+    public CharacterController GetCharController() => controller;
+
+    public bool GetIsWalking() => GameManager.inst.inputManager.Giocatore.Movimento.ReadValue<Vector2>().x != 0
+                                    ||
+                                  GameManager.inst.inputManager.Giocatore.Movimento.ReadValue<Vector2>().y != 0;
+
+    public bool GetIsRunning() => isRunning && GetIsWalking();
+
+    public bool GetIsGrounded() => isGrounded;
+
+    public float GetJumpCharge() => jumpCharge;
+
+    public bool GetInWater() => inWater;
 }
