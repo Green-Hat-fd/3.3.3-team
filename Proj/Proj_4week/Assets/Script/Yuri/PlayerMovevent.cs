@@ -231,7 +231,7 @@ public class PlayerMovevent : MonoBehaviour
                                     ||
                                   GameManager.inst.inputManager.Giocatore.Movimento.ReadValue<Vector2>().y != 0;
 
-    public bool GetIsRunning() => isRunning;
+    public bool GetIsRunning() => isRunning && GetIsWalking();
 
     public bool GetIsGrounded() => isGrounded;
 

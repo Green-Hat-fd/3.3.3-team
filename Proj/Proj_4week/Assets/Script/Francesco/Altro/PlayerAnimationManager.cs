@@ -28,7 +28,7 @@ public class PlayerAnimationManager : MonoBehaviour
 
 
         //Nuoto
-        //playerAnim.SetBool("isSwimming", playerMovScr.GetIsWalking() && playerMovScr.GetInWater());
+        playerAnim.SetBool("isSwimming", playerMovScr.GetIsWalking() && playerMovScr.GetInWater());
 
 
         //Lingua

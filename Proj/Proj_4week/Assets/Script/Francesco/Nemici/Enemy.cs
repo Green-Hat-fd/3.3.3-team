@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour, IEnemy
     [Space(10)]
     [SerializeField] AudioSource damageSfx;
     [SerializeField] AudioSource deathSfx;
+    [SerializeField] Animator enemyAnim;
 
 
 
@@ -50,6 +51,8 @@ public class Enemy : MonoBehaviour, IEnemy
         //Feedback
         damageSfx.PlayOneShot(damageSfx.clip);
 
+        enemyAnim.SetTrigger("damage");
+
 
         En_CheckDeath();
     }
@@ -65,6 +68,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
             //Feedback
             deathSfx.PlayOneShot(deathSfx.clip);
+            enemyAnim.SetTrigger("death");
 
             //Nasconde il nemico
             gameObject.SetActive(false);
