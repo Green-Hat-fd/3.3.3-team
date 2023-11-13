@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class PressioneSollevamentoPorta : MonoBehaviour
 {
-    [SerializeField] private Transform porta;
+    [SerializeField] private Transform key;
+    [SerializeField] private Rigidbody rbPorta;
     [SerializeField] private float movimentoXItem = 5f;
 
     private int itemsInTrigger = 0; //servira' per dare un effetto sonoro quando la porta sara' abbastanza alta
@@ -23,6 +24,7 @@ public class PressioneSollevamentoPorta : MonoBehaviour
             itemsInTrigger++;
             if (itemsInTrigger >= numeroNecessario)
             {
+                rbPorta.isKinematic = false;
                 SollevaPorta();
                 //suonoOk.Play();
             }
@@ -41,11 +43,11 @@ public class PressioneSollevamentoPorta : MonoBehaviour
 
     private void SollevaPorta()
     {
-        porta.Translate(Vector3.up * movimentoXItem);
+        key.Translate(Vector3.left * movimentoXItem);
     }
 
     private void AbbassaPorta()
     {
-        porta.Translate(Vector3.down * movimentoXItem);
+        key.Translate(Vector3.right * movimentoXItem);
     }
 }

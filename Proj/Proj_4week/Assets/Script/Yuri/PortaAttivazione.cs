@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class PortaAttivazione : MonoBehaviour
 {
-    [SerializeField] private Transform porta;
+    [SerializeField] private Transform key;
     [SerializeField] private float movimentoXItem = 5f;
-    [SerializeField] private bool portaAperta;
+    //[SerializeField] private bool portaAperta;
+    [SerializeField] private Rigidbody rbPorta;
     //[SerializeField] private AudioSource suonoOk;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Key")&& !portaAperta)
+        if (other.CompareTag("Key"))//&& !portaAperta)
         {
-            portaAperta = true;
-            SollevaPorta();
+            //portaAperta = true;
+            AttivaPorta();
             //suonoOk.Play();
         }
     }
 
-    private void SollevaPorta()
+    private void AttivaPorta()
     {
-        porta.Translate(Vector3.up * movimentoXItem);
+        rbPorta.isKinematic = false;
+        key.Translate(Vector3.left * movimentoXItem);
     }
 }
