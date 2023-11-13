@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: d787d8dccca2c37448525bd83c8a3c19
+guid: 9707b6c8a10b89b4193e356355c5f026
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
-      74: -7217203538677383704
-    second: Calabrone_Morte
+      74: 1827226128182048838
+    second: Calabrone_Death
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -34,7 +34,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Calabrone_Death
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 53
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -69,7 +98,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
