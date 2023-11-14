@@ -7,22 +7,31 @@ public class PortaAttivazione : MonoBehaviour
     [SerializeField] private Transform key;
     [SerializeField] private float movimentoXItem = 5f;
     //[SerializeField] private bool portaAperta;
-    [SerializeField] private Rigidbody rbPorta;
+    [SerializeField] private List<Rigidbody> rbPorte = new List<Rigidbody>();
     //[SerializeField] private AudioSource suonoOk;
+    private bool activated = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Key"))//&& !portaAperta)
         {
             //portaAperta = true;
-            AttivaPorta();
+            AttivaPorte();
             //suonoOk.Play();
         }
     }
 
-    private void AttivaPorta()
+    private void AttivaPorte()
     {
-        rbPorta.isKinematic = false;
-        key.Translate(Vector3.left * movimentoXItem);
+        foreach (Rigidbody rbPorta in rbPorte)
+        {
+            rbPorta.isKinematic = false;
+        }
+        if (!activated)
+        {
+            key.Translate(Vector3.left * movimentoXItem);
+            //activated = true;
+        }
+        
     }
 }
