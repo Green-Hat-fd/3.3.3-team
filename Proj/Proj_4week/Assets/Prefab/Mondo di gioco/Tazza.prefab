@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9185580791109271492}
   - component: {fileID: 9185580791109271493}
   - component: {fileID: 2472283684948612425}
+  - component: {fileID: 6695316326002381885}
   m_Layer: 3
   m_Name: Tazza
   m_TagString: Untagged
@@ -96,10 +97,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.574908
-  m_Height: 4.0732193
+  m_Radius: 1.5749081
+  m_Height: 3.7851021
   m_Direction: 1
-  m_Center: {x: -0.034508944, y: 0.89554316, z: 0}
+  m_Center: {x: -0.034508947, y: 1.0396049, z: 0}
 --- !u!54 &9185580791109271493
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,3 +130,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4020667, y: 2.330197, z: 0.23078585}
   m_Center: {x: -2.1439764, y: 0.84254587, z: -0.0017025471}
+--- !u!65 &6695316326002381885
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9185580791109271494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0814047, y: 0.35637555, z: 1.7253457}
+  m_Center: {x: 0.010601572, y: -0.82181424, z: 0.025532579}

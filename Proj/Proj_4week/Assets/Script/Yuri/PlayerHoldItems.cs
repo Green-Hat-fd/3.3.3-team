@@ -95,6 +95,7 @@ public class PlayerHoldItems : MonoBehaviour
             heldItem.GetComponent<Rigidbody>().isKinematic = true;
             heldItem.GetComponent<Collider>().enabled = false;
             heldItem.transform.SetParent(itemContainer.transform);
+            heldItem.SetActive(false);
             heldItem.transform.localPosition = new Vector3(0f, heldItemHeight, 0f);
             heldItem.transform.localRotation = Quaternion.identity;
             isHoldingItem = true;
@@ -107,6 +108,7 @@ public class PlayerHoldItems : MonoBehaviour
         {
             if (heldItem.CompareTag("Item"))
             {
+                heldItem.SetActive(true);
                 heldItem.GetComponent<Collider>().enabled = true;
                 Rigidbody itemRigidbody = heldItem.GetComponent<Rigidbody>();
                 itemRigidbody.isKinematic = false;
