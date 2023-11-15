@@ -1328,6 +1328,7 @@ MonoBehaviour:
   speedBonus: 9
   speedStandard: 6
   speedDecreese: 3
+  psm: {fileID: 146271810113517944}
   animMng: {fileID: 5743598781482142242}
 --- !u!114 &6278901564119695002
 MonoBehaviour:
