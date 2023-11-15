@@ -95,17 +95,18 @@ public class CameraRotScript : MonoBehaviour
 
         //Calcolo se la telecamera ha colpito un muro
         //(non colpisce i Trigger e "~0" significa che collide con tutti i layer)
-        hasCamHitWall = Physics.Raycast(playerToFollow.position,
-                                     dirCamPlayer,
-                                     out hitWall,
-                                     camDistRange.y - (playerCam.nearClipPlane + 0.1f),
-                                     ~0,
-                                     QueryTriggerInteraction.Ignore);
+        hasCamHitWall = Physics.Raycast(/*playerToFollow*/cameraMasterPivot.position,
+                                        dirCamPlayer,
+                                        out hitWall,
+                                        camDistRange.y - (playerCam.nearClipPlane + 0.1f),
+                                        ~0,
+                                        QueryTriggerInteraction.Ignore);
 
 
-        //Se ha colpito il muro avvicina la telecamera,
+        //Se ha colpito il muro (e NON ha colpito il giocatore)
+        //avvicina la telecamera,
         //se no la mette alla massima distanza
-        camDist = hasCamHitWall
+        camDist = hasCamHitWall  &&  !hitWall.transform.CompareTag("Player")
                     ? hitWall.distance
                     : camDistRange.y;
 
@@ -117,6 +118,8 @@ public class CameraRotScript : MonoBehaviour
         Vector3 _camPosDist = playerCam_Tr.localPosition;
         _camPosDist.z = -camDist;
         playerCam_Tr.localPosition = _camPosDist;
+
+        if (hitWall.collider != null) print(hitWall.transform.name);
 
         #endregion
     }
@@ -212,8 +215,8 @@ public class CameraRotScript : MonoBehaviour
                    maxRot = Quaternion.AngleAxis(vertRotRange.y, cameraMasterPivot.right);
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawRay(transform.position, minRot * dir * 1.5f);
-        Gizmos.DrawRay(transform.position, maxRot * dir * 1.5f);
+        Gizmos.DrawRay(cameraMasterPivot.position, minRot * dir * 1.5f);
+        Gizmos.DrawRay(cameraMasterPivot.position, maxRot * dir * 1.5f);
     }
 
     #endregion
