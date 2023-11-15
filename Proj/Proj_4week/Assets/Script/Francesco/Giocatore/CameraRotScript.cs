@@ -119,8 +119,6 @@ public class CameraRotScript : MonoBehaviour
         _camPosDist.z = -camDist;
         playerCam_Tr.localPosition = _camPosDist;
 
-        if (hitWall.collider != null) print(hitWall.transform.name);
-
         #endregion
     }
 
