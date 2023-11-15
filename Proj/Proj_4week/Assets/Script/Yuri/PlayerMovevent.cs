@@ -38,6 +38,7 @@ public class PlayerMovevent : MonoBehaviour
     [SerializeField] private float speedStandard = 6f;
     [SerializeField] private float speedDecreese = 3f;
 
+    [SerializeField] private PlayerStatsManager psm;
     public PlayerAnimationManager animMng;
 
     void Awake()
@@ -180,7 +181,7 @@ public class PlayerMovevent : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-
+            psm.Pl_TakeDamage();
             DamageDash();
         }
     }
