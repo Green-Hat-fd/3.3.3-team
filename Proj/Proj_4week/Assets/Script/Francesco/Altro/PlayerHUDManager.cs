@@ -30,9 +30,9 @@ public class PlayerHUDManager : MonoBehaviour
 
 
         //Cambia la vita (health)
-        for (int i = 0; i <= healthImages.Count; i++)
+        for (int i = 0; i < healthImages.Count; i++)
         {
-            //Cambia il cuore rispetto a quanta vita rimane
+            // Cambia il cuore rispetto a quanta vita rimane
             healthImages[i].sprite = i < statsMng.GetHealth()
                                       ? healthSpr
                                       : healthLostSpr;
