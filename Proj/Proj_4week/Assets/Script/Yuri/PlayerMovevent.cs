@@ -13,7 +13,7 @@ public class PlayerMovevent : MonoBehaviour
     [SerializeField] private float turnSmoothTime = 0.1f; //il movimento e' gestito per far girare il player in base alla camera, cambia questo valore per aumentare la rotazione
     private float turnSmoothVelocity;
     [SerializeField] private float gravity = -9.81f;
-
+    [SerializeField] private float maxFallSpeed;
     [SerializeField] private float jumpHeight = 3f; //serve preincipalmente per l'altezza del doppio salto
     private bool hasDoubleJumped = false;
     Vector3 velocity;
@@ -39,6 +39,8 @@ public class PlayerMovevent : MonoBehaviour
     [SerializeField] private float speedDecreese = 3f;
 
     [SerializeField] private PlayerStatsManager psm;
+    
+
     public PlayerAnimationManager animMng;
 
     void Awake()
@@ -107,7 +109,6 @@ public class PlayerMovevent : MonoBehaviour
             {
                 if (isGrounded && isCharging)
                 {
-                    //isGrabbed = false;
                     transform.parent = null;
                     velocity.y = Mathf.Sqrt(jumpCharge * -6 * gravity);
                     jumpCharge = 0f;
@@ -118,7 +119,6 @@ public class PlayerMovevent : MonoBehaviour
                 else if (!hasDoubleJumped && inAir)
                 {
                     transform.parent = null;
-                    //isGrabbed = false;
                     velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
                     jumpCharge = 0f;
                     hasDoubleJumped = true;
@@ -152,6 +152,19 @@ public class PlayerMovevent : MonoBehaviour
                 {
                     controller.Move(dashDirection * Time.deltaTime * dashDistance / dashDuration);
                 }
+            }
+
+            if (!isGrounded)
+            {
+                if (velocity.y < 0)  // Only update vertical velocity when falling
+                {
+                    velocity.y += gravity * Time.deltaTime;
+
+                    // Cap the vertical velocity to prevent excessive speed
+                    velocity.y = Mathf.Clamp(velocity.y, -maxFallSpeed, float.MaxValue);
+                }
+
+                controller.Move(velocity * Time.deltaTime);
             }
 
         }
@@ -209,22 +222,6 @@ public class PlayerMovevent : MonoBehaviour
     {
         _maxJumpCharge = maxJumpCharge;
     }
-
-    /*private void GrabHinge()
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactionRange, grabbableLayer);
-
-        foreach (Collider collider in hitColliders)
-        {
-            if (collider.CompareTag("Grab"))
-            {
-                transform.parent = collider.transform;
-                isGrabbed = true;
-                Debug.Log("grabbato");
-            }
-        }
-    }*/
-
 
     public CharacterController GetCharController() => controller;
 
