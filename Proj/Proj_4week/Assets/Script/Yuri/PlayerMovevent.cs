@@ -190,10 +190,11 @@ public class PlayerMovevent : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnControllerColliderHit(ControllerColliderHit collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            Debug.LogError("Tocca danno");
             psm.Pl_TakeDamage();
             DamageDash();
         }
