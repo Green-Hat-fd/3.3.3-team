@@ -7,6 +7,7 @@ public class PlayerHUDManager : MonoBehaviour
 {
     [SerializeField] PlayerStatsSO_Script stats_SO;
     [SerializeField] PlayerStatsManager statsMng;
+    [SerializeField] PlayerHoldItems holdItemsScr;
 
     
     [Header("—— UI ——")]
@@ -19,7 +20,10 @@ public class PlayerHUDManager : MonoBehaviour
     [SerializeField] Text livesTxt;
 
     [Space(10)]
-    [SerializeField] Slider ammoSlider;
+    [SerializeField] Image playerIcon;
+    [SerializeField] Sprite normalSprite,
+                            pickUpSprite;
+    //[SerializeField] SpriteRenderer playerObjBubble;
 
 
 
@@ -41,5 +45,14 @@ public class PlayerHUDManager : MonoBehaviour
 
         //Cambia il testo delle vite (lives)
         livesTxt.text = "x" + stats_SO.GetLives();
+
+
+        //Cambia l'icona del giocatore
+        playerIcon.sprite = holdItemsScr.GetIsHoldingItem()
+                              ? pickUpSprite
+                              : normalSprite;
+
+
+        //Cambia con cosa
     }
 }
