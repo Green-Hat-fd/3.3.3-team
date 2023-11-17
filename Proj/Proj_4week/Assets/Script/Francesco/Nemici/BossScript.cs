@@ -50,6 +50,7 @@ public class BossScript : Enemy
     [Header("—— Feedback ——")]
     [SerializeField] AudioSource meleeAtkSfx;
     [SerializeField] AudioSource shootSfx;
+    [SerializeField] Animator bossAnim;
 
 
 
@@ -57,6 +58,8 @@ public class BossScript : Enemy
     void Awake()
     {
         isInvincible = false;
+
+        StartCoroutine(StartInitialLaugh());
     }
 
     void Update()
@@ -78,6 +81,7 @@ public class BossScript : Enemy
 
                     StartCoroutine(SwitchPhase(invulnerablePhaseSec,
                                                2));
+
                     break;
 
                 case 2:
@@ -107,6 +111,7 @@ public class BossScript : Enemy
 
                     //Feedback
                     meleeAtkSfx.PlayOneShot(meleeAtkSfx.clip);
+                    bossAnim.SetTrigger("attack");
 
 
 
@@ -135,6 +140,7 @@ public class BossScript : Enemy
 
                     //Feedback
                     shootSfx.PlayOneShot(shootSfx.clip);
+                    bossAnim.SetTrigger("attack");
 
 
 
@@ -165,6 +171,11 @@ public class BossScript : Enemy
         }
 
         #endregion
+
+
+        //Cambia se si trova in alto o meno rispetto alla fase
+        //(vedi la region "Sistemazione delle fasi")
+        bossAnim.SetBool("isUp", phaseNum >= 2);
     }
 
 
@@ -173,7 +184,8 @@ public class BossScript : Enemy
     IEnumerator SwitchPhase(float secToWait, int phaseToSwitch)
     {
         phaseNum = phaseToSwitch;
-        
+        bossAnim.SetTrigger("changePhase");    //Feedback
+
         yield return new WaitForSeconds(secToWait);
         
         doOnce_switchPhase = true;
@@ -202,6 +214,22 @@ public class BossScript : Enemy
     #endregion
 
 
+    #region Inizio e Morte
+
+    IEnumerator StartInitialLaugh()
+    {
+        bossAnim.SetBool("start", true);
+
+
+        //Aspetta finchè non finisce la prima animazione
+        yield return new WaitUntil(() => bossAnim
+                                         .GetCurrentAnimatorStateInfo(0)
+                                         .normalizedTime > 1);
+
+
+        bossAnim.SetBool("start", false);
+    }
+
     IEnumerator WaitAndFinishBoss()
     {
         //Feedback
@@ -216,6 +244,9 @@ public class BossScript : Enemy
         gameObject.SetActive(false);
     }
 
+    #endregion
+
+
 
     public void SetCanLookPlayer(bool value)
     {
@@ -229,6 +260,11 @@ public class BossScript : Enemy
     public void SetCanAttackPlayer_Melee(bool value)
     {
         canAttackPlayer_melee = value;
+    }
+
+    public void SetStart_Anim(bool value)
+    {
+        bossAnim.SetBool("start", value);
     }
 
 
