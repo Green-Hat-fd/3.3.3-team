@@ -49,4 +49,4 @@ MonoBehaviour:
   musicVolume: 50
   soundVolume: 60
   mouseSensitivity: 1
-  fullscreen: 0
+  fullscreen: 1

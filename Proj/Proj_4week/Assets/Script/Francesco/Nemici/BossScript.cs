@@ -35,7 +35,9 @@ public class BossScript : Enemy
     [Min(0)]
     [SerializeField] float fireRate = 2.5f;
     [Space(10)]
-    [SerializeField] Transform head;
+    [SerializeField] Transform headToRotate;
+    [Min(0.01f)]
+    [SerializeField] float headRotVel = 3;
 
     bool doOnce_switchPhase = true;
     bool doOnce_melee = true;
@@ -49,17 +51,22 @@ public class BossScript : Enemy
 
     [Header("—— Feedback ——")]
     [SerializeField] AudioSource meleeAtkSfx;
+    [SerializeField] ParticleSystem meleeAtkPart;
     [SerializeField] AudioSource shootSfx;
+    [SerializeField] ParticleSystem shootPart;
     [SerializeField] Animator bossAnim;
+    [SerializeField] Slider bossHealthSlider;
 
 
 
 
     void Awake()
     {
+        player = FindObjectOfType<PlayerMovevent>().gameObject;
+
         isInvincible = false;
 
-        StartCoroutine(StartInitialLaugh());
+        //StartCoroutine(StartInitialLaugh());
     }
 
     void Update()
@@ -67,7 +74,7 @@ public class BossScript : Enemy
         if (canLookPlayer)
         {
             //Guarda sempre il giocatore
-            head.LookAt(player.transform);
+            headToRotate.LookAt(player.transform);
         }
 
 
@@ -104,13 +111,6 @@ public class BossScript : Enemy
             case 1:
                 if (doOnce_melee && canAttackPlayer_melee)
                 {
-                    //Attiva il collider per attaccare
-                    //e lo nasconde dopo tot tempo
-                    attackCollider.gameObject.SetActive(true);
-                    Invoke(nameof(HideMeleeCollider), meleeAtkActiveTime);
-
-                    //Feedback
-                    meleeAtkSfx.PlayOneShot(meleeAtkSfx.clip);
                     bossAnim.SetTrigger("attack");
 
 
@@ -131,15 +131,6 @@ public class BossScript : Enemy
             case 2:
                 if (doOnce_shoot)
                 {
-                    //Prende la rotazione verso il giocatore
-                    Quaternion playerDir = Quaternion.LookRotation(player.transform.position);
-
-                    //Crea il proiettile ("sputo")
-                    Instantiate(bulletToShoot, shoot_spawnPoint.position, playerDir);
-
-
-                    //Feedback
-                    shootSfx.PlayOneShot(shootSfx.clip);
                     bossAnim.SetTrigger("attack");
 
 
@@ -176,6 +167,10 @@ public class BossScript : Enemy
         //Cambia se si trova in alto o meno rispetto alla fase
         //(vedi la region "Sistemazione delle fasi")
         bossAnim.SetBool("isUp", phaseNum >= 2);
+
+
+        //Cambio dello slider della vita
+        bossHealthSlider.value = (float)(health / maxHealth);
     }
 
 
@@ -209,6 +204,33 @@ public class BossScript : Enemy
     void HideMeleeCollider()
     {
         attackCollider.gameObject.SetActive(false);
+    }
+
+
+    public void ActivateMeleeAttack()
+    {
+        //Attiva il collider per attaccare
+        //e lo nasconde dopo tot tempo
+        attackCollider.gameObject.SetActive(true);
+        Invoke(nameof(HideMeleeCollider), meleeAtkActiveTime);
+
+        //Feedback
+        meleeAtkSfx.PlayOneShot(meleeAtkSfx.clip);
+        meleeAtkPart.Play();
+    }
+
+    public void ActivateShootAttack()
+    {
+        //Prende la rotazione verso il giocatore
+        Quaternion playerDir = Quaternion.LookRotation(player.transform.position);
+
+        //Crea il proiettile ("sputo")
+        Instantiate(bulletToShoot, shoot_spawnPoint.position, playerDir);
+
+
+        //Feedback
+        shootSfx.PlayOneShot(shootSfx.clip);
+        shootPart.Play();
     }
 
     #endregion

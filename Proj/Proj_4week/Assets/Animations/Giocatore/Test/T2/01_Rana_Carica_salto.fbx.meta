@@ -8,7 +8,10 @@ ModelImporter:
     second: JumpCharge_EmptyMouth
   - first:
       74: -6402709644054655732
-    second: Jump_Start
+    second: Jump_Start_OLD
+  - first:
+      74: -7683154147445761171
+    second: JumpCharge_EmptyMouth_OLD
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -39,7 +42,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: JumpCharge_EmptyMouth
+      name: JumpCharge_EmptyMouth_OLD
       takeName: Take 001
       internalID: 0
       firstFrame: 0
@@ -68,7 +71,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Jump_Start
+      name: Jump_Start_OLD
       takeName: Take 001
       internalID: 0
       firstFrame: 18
