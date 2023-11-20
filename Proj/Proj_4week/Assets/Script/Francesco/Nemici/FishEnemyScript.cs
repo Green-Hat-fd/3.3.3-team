@@ -42,7 +42,7 @@ public class FishEnemyScript : Enemy
 
     void Update()
     {
-        if (canJump)
+        if (canJump  &&  playerTr != null)
         {
             //Calcola la direzione del giocatore
             Vector3 playerDir = (playerTr.position - returnPoint.position).normalized;
@@ -102,6 +102,10 @@ public class FishEnemyScript : Enemy
         {
             Invoke(nameof(SetTrueCanReturn), 0.15f);
             canJump = false;
+        }
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            playerTr = other.transform;
         }
     }
 
