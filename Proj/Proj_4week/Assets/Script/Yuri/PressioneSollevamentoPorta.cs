@@ -14,7 +14,7 @@ public class PressioneSollevamentoPorta : MonoBehaviour
 
     private void Update()
     {
-       richiesta.text = "Oggetti Necessari: " + numeroNecessario.ToString();
+       richiesta.text = "Piazza qui sopra " + numeroNecessario.ToString() + " oggetti per abbattere l'ostacolo";
     }
 
     private void OnTriggerEnter(Collider other)
