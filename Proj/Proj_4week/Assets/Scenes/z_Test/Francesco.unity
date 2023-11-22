@@ -1269,6 +1269,14 @@ PrefabInstance:
       propertyPath: bulletToShoot
       value: 
       objectReference: {fileID: 1798771922}
+    - target: {fileID: 7190291017713879914, guid: b865bb659d8619f4a9c6d4b7105bbc1f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190291017713879914, guid: b865bb659d8619f4a9c6d4b7105bbc1f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8074153568551618416, guid: b865bb659d8619f4a9c6d4b7105bbc1f, type: 3}
       propertyPath: m_RootOrder
       value: 21
