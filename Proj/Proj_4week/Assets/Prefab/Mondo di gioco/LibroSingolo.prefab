@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5168201293297097204}
   - component: {fileID: 849995620976753169}
   - component: {fileID: 495083788448506499}
+  - component: {fileID: 2812857637666985925}
   m_Layer: 3
   m_Name: LibroSingolo
   m_TagString: Untagged
@@ -97,3 +98,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.55221, y: 1.2799153, z: 4.051133}
   m_Center: {x: 0, y: 0.00000023841858, z: 0}
+--- !u!208 &2812857637666985925
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513169156322335336}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.776, y: 0.64000005, z: 2.026}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

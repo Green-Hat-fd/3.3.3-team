@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 6638476738374152934}
   - component: {fileID: 6726922872644182614}
   - component: {fileID: 7443074780470831134}
+  - component: {fileID: -5634257907818263640}
   m_Layer: 0
   m_Name: PuntinaDanno
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &978989477793598838
 Transform:
@@ -98,3 +99,19 @@ CapsuleCollider:
   m_Height: 4.803203
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &-5634257907818263640
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125107529191918299}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.363, y: 2.4020002, z: 1.363}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

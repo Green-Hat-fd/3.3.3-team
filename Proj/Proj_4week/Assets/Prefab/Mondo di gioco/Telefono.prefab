@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2397855571421762954}
   - component: {fileID: 8316135815522361644}
   - component: {fileID: 3632769083412481721}
+  - component: {fileID: -8501312624797528430}
   m_Layer: 0
   m_Name: Telefono
   m_TagString: Untagged
@@ -98,6 +99,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.7860508, y: 2.2374206, z: 4.5188103}
   m_Center: {x: 0, y: -0.000000059604645, z: 0.00000011920929}
+--- !u!208 &-8501312624797528430
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394410349973679772}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.8930001, y: 1.1190001, z: 2.259}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6540442014823812969
 GameObject:
   m_ObjectHideFlags: 0

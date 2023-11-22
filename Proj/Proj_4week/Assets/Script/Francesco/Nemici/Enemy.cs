@@ -36,6 +36,11 @@ public class Enemy : MonoBehaviour, IEnemy
             //Danneggia il giocatore
             collObj.GetComponent<PlayerStatsManager>().Pl_TakeDamage();
         }
+
+        if (collision.gameObject.CompareTag("Attack"))
+        {
+            En_TakeDamage(1);
+        }
     }
 
 
