@@ -195,6 +195,7 @@ MonoBehaviour:
   yMinDeath: -35
   maxHealth: 3
   invSec: 3
+  playerToRespawn: {fileID: 8467456748237557216}
   secBeforeCheckpoint: 2
   secBeforeReload: 10
   deathSfx: {fileID: 5128745587421627670}
