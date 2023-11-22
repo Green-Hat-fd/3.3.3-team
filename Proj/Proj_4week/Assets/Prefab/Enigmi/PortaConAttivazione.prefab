@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 4319592008787896593}
   - component: {fileID: 4319592008787896606}
   - component: {fileID: 4319592008787896607}
+  - component: {fileID: 263128867984710078}
   m_Layer: 3
   m_Name: PulsanteAttivazione
   m_TagString: Untagged
@@ -294,6 +295,22 @@ MonoBehaviour:
   movimentoXItem: 5
   rbPorte:
   - {fileID: 3288985706562072406}
+--- !u!208 &263128867984710078
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319592008787896605}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7526559001384344810
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +325,7 @@ GameObject:
   - component: {fileID: 3288985706562072406}
   - component: {fileID: 7709106383485408344}
   - component: {fileID: 5255537397733158847}
+  - component: {fileID: 2369775453399832356}
   m_Layer: 3
   m_Name: Book
   m_TagString: Untagged
@@ -422,3 +440,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.09354434
   m_Center: {x: -2.7969127, y: -0.00000019073487, z: 0}
+--- !u!208 &2369775453399832356
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526559001384344810}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.776, y: 0.64000005, z: 2.026}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

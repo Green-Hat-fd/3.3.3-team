@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7802106088452526068}
   - component: {fileID: 987045480798313892}
   - component: {fileID: 4975826199197271914}
+  - component: {fileID: -5551716876688364235}
   m_Layer: 3
   m_Name: SassoGrande3
   m_TagString: Untagged
@@ -98,3 +99,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: e0091b2431cb45d4c80a7562f4097d0e, type: 3}
+--- !u!208 &-5551716876688364235
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400956892826046618}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.34800002, y: 0.328, z: 0.34800002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.017, y: 0.328, z: 0}
+  m_TimeToStationary: 0.5

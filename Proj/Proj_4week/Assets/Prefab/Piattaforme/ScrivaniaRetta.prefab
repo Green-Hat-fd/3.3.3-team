@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5334589647808922038}
   - component: {fileID: 5334589647808922039}
   - component: {fileID: 5334589647808922036}
+  - component: {fileID: 8724538285354391330}
   m_Layer: 3
   m_Name: ScrivaniaRetta
   m_TagString: Ground
@@ -98,3 +99,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 72e9334cf510de54ab059394736fab3f, type: 3}
+--- !u!208 &8724538285354391330
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5334589647808922024}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3.584, y: 1.3460001, z: 1.5270001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

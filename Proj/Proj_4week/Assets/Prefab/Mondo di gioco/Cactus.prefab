@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 4856723127462936900}
   - component: {fileID: 4920702407647754881}
   - component: {fileID: 4059143252817827226}
+  - component: {fileID: -2422284655317359562}
   m_Layer: 3
   m_Name: Cactus
   m_TagString: Ground
@@ -144,3 +145,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3499342, y: 1.1216724, z: 1.3499342}
   m_Center: {x: 0.00000012197819, y: 0.5608362, z: 0}
+--- !u!208 &-2422284655317359562
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306209906865626422}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.675, y: 0.99700004, z: 0.675}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.99700004, z: 0}
+  m_TimeToStationary: 0.5

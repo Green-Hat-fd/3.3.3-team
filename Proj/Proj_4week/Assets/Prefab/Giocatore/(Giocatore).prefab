@@ -1330,7 +1330,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 24
   jumpCharge: 0
-  maxJumpCharge: 2
+  maxJumpCharge: 1
   dashDistance: 3
   speedBonus: 9
   speedStandard: 6

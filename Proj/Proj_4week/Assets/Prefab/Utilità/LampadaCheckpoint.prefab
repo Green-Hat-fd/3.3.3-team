@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 8536702935299233474}
   - component: {fileID: 8957286354037441631}
   - component: {fileID: 479075898287239021}
+  - component: {fileID: 179019264788443763}
   m_Layer: 0
   m_Name: LampadaCheckpoint
   m_TagString: Untagged
@@ -382,3 +383,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5516231
   m_Center: {x: 0.04839468, y: 5.0640626, z: 0.6706679}
+--- !u!208 &179019264788443763
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8056315428750085370}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.9860001, y: 3.3190002, z: 2.4}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 3.3240001, z: 0.41400003}
+  m_TimeToStationary: 0.5

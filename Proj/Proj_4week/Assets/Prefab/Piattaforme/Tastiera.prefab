@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6951899239579574022}
   - component: {fileID: 6951899239579574023}
   - component: {fileID: 6951899239579574016}
+  - component: {fileID: -3344522890824224304}
   m_Layer: 3
   m_Name: Tastiera
   m_TagString: Ground
@@ -97,3 +98,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.4395175, y: 0.8430928, z: 3.017067}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &-3344522890824224304
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6951899239579574018}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3.2200003, y: 0.42200002, z: 1.5090001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
