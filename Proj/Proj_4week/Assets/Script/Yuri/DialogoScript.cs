@@ -8,6 +8,8 @@ public class DialogoScript : MonoBehaviour
 {
     [SerializeField] private GameObject dialogoPanel, message;
     [SerializeField] private string nomePG;
+    [SerializeField] private Image iconPlace;
+    [SerializeField] private Sprite iconPG; 
     [SerializeField] private Text dialogoTxt, nameTxt;
     [SerializeField] private string[] testi;
     [SerializeField] private float textSpeed = 0.3f;
@@ -81,6 +83,7 @@ public class DialogoScript : MonoBehaviour
 
     public void Dialogo()
     {
+        iconPlace.sprite = iconPG;
         nameTxt.text = nomePG;
         dialogoTxt.text = string.Empty;
         indice = 0;
