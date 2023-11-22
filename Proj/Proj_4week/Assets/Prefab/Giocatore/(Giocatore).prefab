@@ -242,8 +242,8 @@ MonoBehaviour:
   - {fileID: 2031031646772351103}
   - {fileID: 6360218119731046458}
   - {fileID: 2835305722308983372}
-  healthSpr: {fileID: 0}
-  healthLostSpr: {fileID: 0}
+  healthSpr: {fileID: 21300000, guid: 560df611d6063054aa67c4169110ea82, type: 3}
+  healthLostSpr: {fileID: 21300000, guid: aa951359915aff140adf8720d6a29775, type: 3}
   livesTxt: {fileID: 1303009338856111868}
   playerIcon: {fileID: 0}
   normalSprite: {fileID: 0}
