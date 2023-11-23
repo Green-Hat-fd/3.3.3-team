@@ -6,10 +6,9 @@ public class PressioneSollevamentoPorta : MonoBehaviour
     [SerializeField] private Transform key;
     [SerializeField] private Rigidbody rbPorta;
     [SerializeField] private float movimentoXItem = 5f;
-
+    [SerializeField] private AudioSource successo;
     private int itemsInTrigger = 0; //servira' per dare un effetto sonoro quando la porta sara' abbastanza alta
     [SerializeField] private float numeroNecessario;
-    //[SerializeField] private AudioSource suonoOk;
     [SerializeField] private TextMeshPro richiesta;
 
     private void Update()
@@ -26,7 +25,7 @@ public class PressioneSollevamentoPorta : MonoBehaviour
             {
                 rbPorta.isKinematic = false;
                 SollevaPorta();
-                //suonoOk.Play();
+                successo.Play();
             }
             
         }
