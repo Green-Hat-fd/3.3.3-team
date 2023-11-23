@@ -12,7 +12,8 @@ public class InstantKillPlayer : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))    //Se ha colliso con il giocatore
         {
             //Danneggia il giocatore
-            psm.SetHealthToZero();
+            //psm.SetHealthToZero();
+            psm.RespawnFromCheckpoint();
         }
     }
 }

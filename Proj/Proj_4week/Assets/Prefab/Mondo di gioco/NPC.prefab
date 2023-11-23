@@ -110,7 +110,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2083827294646193582}
-  - component: {fileID: 2083827294646193580}
   - component: {fileID: 2083827294646193568}
   - component: {fileID: 2083827294646193569}
   - component: {fileID: 4676686543539285400}
@@ -137,19 +136,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2083827294646193580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083827294646193579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5eb29eb90a462c44bbccc99c8e83d30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraToFollow: {fileID: 0}
 --- !u!65 &2083827294646193568
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -200,7 +186,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1838895979711258145, guid: 35c07c2c79a4c344db2a476f260bc3e8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9c2306df2c9987942a76dbe379f63a75, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
