@@ -8,6 +8,7 @@ public class PlayerHoldItems : MonoBehaviour
     public PlayerAttack attackScr;
     public PlayerMovevent moveventScr;
     public PlayerAnimationManager animMng;
+    public PlayerStatsManager statsMng;
 
     public float pickupRange = 3f;
     public float heldItemHeight = 1f;
@@ -19,6 +20,11 @@ public class PlayerHoldItems : MonoBehaviour
     private GameObject heldItem;
     private bool isHoldingItem = false;
     private float pickupCooldown = 0.5f;
+
+    private void Awake()
+    {
+        statsMng = FindObjectOfType<PlayerStatsManager>();
+    }
 
     private void Update()
     {
@@ -89,6 +95,8 @@ public class PlayerHoldItems : MonoBehaviour
             stats_SO.SetButterflyCollected(i, true);   //aggiunge il collezionabile come raccolto
             stats_SO.AddScore(score);   //aggiunge il punteggio
             collectableHit.transform.gameObject.SetActive(false);   //Nasconde il collezionabile
+
+            statsMng.AddOneHealthPoint();   //Aggiunge 1 HP al giocatore
         }
 
         //Oggetto

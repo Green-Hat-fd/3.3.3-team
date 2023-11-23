@@ -25,6 +25,10 @@ public class PlayerHUDManager : MonoBehaviour
                             pickUpSprite;
     //[SerializeField] SpriteRenderer playerObjBubble;
 
+    [Space(10)]
+    [SerializeField] List<Image> inactiveCollectables,
+                                 activeCollectables;
+
 
 
     void Update()
@@ -54,5 +58,15 @@ public class PlayerHUDManager : MonoBehaviour
 
 
         //Cambia con cosa
+
+
+        //Cambia i collezionabili (se presi o meno)
+        for (int i = 0; i < stats_SO.GetButterflyCollected().Count; i++)
+        {
+            bool isCollected = stats_SO.GetButterflyCollected()[i];
+
+            activeCollectables[i].enabled = isCollected;
+            inactiveCollectables[i].enabled = !isCollected;
+        }
     }
 }
