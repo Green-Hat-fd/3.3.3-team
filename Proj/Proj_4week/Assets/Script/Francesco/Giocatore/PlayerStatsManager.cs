@@ -56,7 +56,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
         //playerMovScr = FindObjectOfType<PlayerMovRB>();
 
         ResetAllHealthVariables();
-        stats_SO.SetCheckpointPos(transform.position);
+        stats_SO.SetCheckpointPos(playerToRespawn.position);
 
         //Reset degli sprite
         ActivatePlayer(true);
@@ -73,7 +73,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
     void Update()
     {
         //Muore quando supera il limite minimo sulla Y
-        if (transform.position.y <= yMinDeath)
+        if (playerToRespawn.position.y <= yMinDeath)
         {
             SetHealthToZero();
         }
@@ -237,7 +237,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
         pauseScr.EnableAllScripts(true);
 
         //Riporta il giocatore al checkpoint
-        transform.position = stats_SO.GetCheckpointPos();
+        playerToRespawn.position = stats_SO.GetCheckpointPos();
 
         //Reset delle variabili della vita
         ResetHealthVariables_Respawn();
@@ -266,7 +266,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
         //deathMng.ActivateScripts(true);
 
         //Rimette il giocatore nella posizione dell'ultimo checkpoint
-        transform.position = stats_SO.GetCheckpointPos();
+        playerToRespawn.position = stats_SO.GetCheckpointPos();
     }
 
     public void RespawnLevel()
@@ -348,7 +348,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
         Vector3 deathOffset = Vector3.up * yMinDeath,
                 cubeOffset = Vector3.up * (deathZoneSize / 2),
                 pos_yDeath = Vector3.zero + deathOffset - cubeOffset;
-        pos_yDeath.x = transform.position.x;
+        pos_yDeath.x = playerToRespawn.position.x;
 
         //Disegna un rettangolo dove il giocatore muore
         Gizmos.color = Color.black;
