@@ -6,6 +6,7 @@ public class PlayerAnimationManager : MonoBehaviour
 {
     [SerializeField] PlayerMovevent playerMovScr;
     [SerializeField] PlayerHoldItems holdItemsScr;
+    [SerializeField] PlayerAttack attackScr;
 
     [Space(10)]
     [SerializeField] Animator playerAnim;
@@ -40,6 +41,13 @@ public class PlayerAnimationManager : MonoBehaviour
     public void TriggerJump()
     {
         playerAnim.SetTrigger("jump");
+    }
+
+
+    //Attacco
+    public void TriggerAttack()
+    {
+        playerAnim.SetTrigger("attack");
     }
 
 

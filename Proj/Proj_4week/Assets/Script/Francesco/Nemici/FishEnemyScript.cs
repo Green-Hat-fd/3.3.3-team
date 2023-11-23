@@ -108,6 +108,13 @@ public class FishEnemyScript : Enemy
             playerTr = other.transform;
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerTr = null;
+        }
+    }
 
     void SetTrueCanJump()
     {
@@ -138,10 +145,13 @@ public class FishEnemyScript : Enemy
 
     private void OnDrawGizmos()
     {
-        Vector3 dir = (playerTr.position - returnPoint.position).normalized;
+        if (playerTr != null)
+        {
+            Vector3 dir = (playerTr.position - returnPoint.position).normalized;
         
-        Gizmos.color = Color.blue;
-        Gizmos.DrawRay(returnPoint.position, dir * jumpForce / 2);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawRay(returnPoint.position, dir * jumpForce / 2);
+        }
     }
 
     private void OnDrawGizmosSelected()

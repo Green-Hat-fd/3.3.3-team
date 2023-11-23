@@ -2359,6 +2359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovScr: {fileID: 1181054184}
   holdItemsScr: {fileID: 1181054183}
+  attackScr: {fileID: 0}
   playerAnim: {fileID: 1360332993}
 --- !u!1001 &1370562800
 PrefabInstance:
@@ -2989,6 +2990,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 795270585717414495, guid: c7b6ef05b9070af49be07bb0e19f892c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108956722428997812, guid: c7b6ef05b9070af49be07bb0e19f892c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108956722428997812, guid: c7b6ef05b9070af49be07bb0e19f892c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108956722428997812, guid: c7b6ef05b9070af49be07bb0e19f892c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108956722428997812, guid: c7b6ef05b9070af49be07bb0e19f892c, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1838017927349233359, guid: c7b6ef05b9070af49be07bb0e19f892c, type: 3}
