@@ -152,4 +152,7 @@ public class RagnoIA : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         isStopped = false;
     }
+
+
+    public bool GetIsWalking() => !isStopped;
 }

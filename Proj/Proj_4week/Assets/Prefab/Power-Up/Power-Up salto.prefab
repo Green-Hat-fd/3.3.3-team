@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7723205714135158060}
   - component: {fileID: 4221316405865417635}
   - component: {fileID: 5902891734371795534}
+  - component: {fileID: 5401008603146853986}
   m_Layer: 7
   m_Name: Modello
   m_TagString: Untagged
@@ -98,6 +99,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraToFollow: {fileID: 0}
+--- !u!95 &5401008603146853986
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728268401541880053}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 675650d1510f1cf4ea82432de77dfe6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5524538202393407831
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,5 +353,5 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4279389461
+    rgba: 4279383373
   m_Size: 1

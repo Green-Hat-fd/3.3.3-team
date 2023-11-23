@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2810115751050442600}
   - component: {fileID: 2810115751050442603}
   - component: {fileID: 2810115751050442602}
-  - component: {fileID: 3759343555454727598}
   m_Layer: 0
   m_Name: Nemico Pesce
   m_TagString: Enemy
@@ -77,24 +76,6 @@ MonoBehaviour:
   jumpForce: 8.5
   secToWaitRange: {x: 0.2, y: 1}
   fishJump_part: {fileID: 1488221333627260051, guid: f8da825963eb98f4890c6dea6c27c2ef, type: 3}
---- !u!114 &3759343555454727598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2810115751050442601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5e07643cc5cc944585ea0e47b870291, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 1
-  stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
-  scoreAtDeath: 0
-  damageSfx: {fileID: 0}
-  deathSfx: {fileID: 0}
-  enemyAnim: {fileID: 0}
 --- !u!1 &2810115751160244395
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public PlayerAnimationManager animMng;
+
     [SerializeField] private GameObject attacco, proiettilePrefab, puntoSparo;
     private bool isAttacking = false;
     [SerializeField] private float velocitaProiettile = 700f;
@@ -38,6 +40,7 @@ public class PlayerAttack : MonoBehaviour
             isAttacking = true;
             attacco.SetActive(true);
             Invoke("DisableAttack", 1.0f);
+            animMng.TriggerAttack();
         }
 
         if (GameManager.inst.inputManager.Giocatore.Sparo.WasPressedThisFrame() && canShoot)
