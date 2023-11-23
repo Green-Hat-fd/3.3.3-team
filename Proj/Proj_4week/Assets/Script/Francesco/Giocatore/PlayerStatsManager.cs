@@ -27,10 +27,10 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
     [SerializeField] float invSec = 3;
 
     [Space(10)]
+    [SerializeField] Transform playerToRespawn;
     [Min(0.1f)]
-    [SerializeField] float secBeforeCheckpoint = 2;
-    [Min(0.1f)]
-    [SerializeField] float secBeforeReload = 10;
+    [SerializeField] float secBeforeCheckpoint = 2,
+                           secBeforeReload = 10;
 
     [Header("—— Feedback ——")]
     [SerializeField] AudioSource deathSfx;
@@ -148,7 +148,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
             isDead = true;
 
 
-            animMng.TriggerDeath();    //Animazione
+            animMng.SetDeath(true);    //Animazione
 
 
             ResetAllPowerUps();
@@ -245,6 +245,9 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
 
         //Fa muovere il giocatore
         //playerMovScr.GetRB().bodyType = RigidbodyType2D.Dynamic;
+
+        //Animazione
+        animMng.SetDeath(false);
     }
 
     void ReloadScene()

@@ -59,8 +59,8 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         playerAnim.SetTrigger("damage");
     }
-    public void TriggerDeath()
+    public void SetDeath(bool value)
     {
-        playerAnim.SetTrigger("death");
+        playerAnim.SetBool("isDead", value);
     }
 }
