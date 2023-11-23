@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
 
     public void BackMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MenuPrincipale");
     }
 
     public void SelectAvvio()
