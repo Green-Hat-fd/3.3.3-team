@@ -62198,6 +62198,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 146271810113517944, guid: c7b6ef05b9070af49be07bb0e19f892c, type: 3}
+      propertyPath: yMinDeath
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 243822945270582371, guid: c7b6ef05b9070af49be07bb0e19f892c, type: 3}
       propertyPath: m_Name
       value: (Giocatore)
