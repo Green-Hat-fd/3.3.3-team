@@ -16,7 +16,7 @@ public class DialogoScript : MonoBehaviour
     private int indice;
     public static bool dialogueActive;
     public Animator animator;
-
+    [SerializeField] private AudioSource suoneria;
     /*private void Start()
     {
         if (dialogueActive)
@@ -54,6 +54,13 @@ public class DialogoScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            suoneria.Play();
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
