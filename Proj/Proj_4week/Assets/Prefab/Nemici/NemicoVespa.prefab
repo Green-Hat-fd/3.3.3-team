@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5687716168809984583}
   - component: {fileID: 5687716168809984580}
   - component: {fileID: 5687716168809984581}
-  - component: {fileID: -5164343779013323133}
   - component: {fileID: -2225197832312155765}
   - component: {fileID: -2570486744171020351}
   m_Layer: 0
@@ -117,24 +116,6 @@ MonoBehaviour:
   bulletSpeed: 80
   patrolInterval: 0.01
   anim: {fileID: 2171061911185524883}
---- !u!114 &-5164343779013323133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5687716168809984586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5e07643cc5cc944585ea0e47b870291, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 2
-  stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
-  scoreAtDeath: 0
-  damageSfx: {fileID: -2225197832312155765}
-  deathSfx: {fileID: -2570486744171020351}
-  enemyAnim: {fileID: 2171061911185524883}
 --- !u!82 &-2225197832312155765
 AudioSource:
   m_ObjectHideFlags: 0
@@ -550,14 +531,14 @@ Transform:
   m_PrefabInstance: {fileID: 1075133292735753205}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7567855136944034447}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.12854, y: -1.04, z: 0.05159}
+  m_LocalScale: {x: 0.42548, y: 0.42548, z: 0.42548}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7085461147514046116}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &11449920714885491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -685,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 20766ec66dd4ae244906a0a48dbf3435, type: 3}
       propertyPath: m_Name
-      value: Calabrone_Attacco
+      value: 'Calabrone_Attacco (Missing Prefab with guid: 20766ec66dd4ae244906a0a48dbf3435)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20766ec66dd4ae244906a0a48dbf3435, type: 3}

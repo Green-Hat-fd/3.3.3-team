@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c896a9ff4d7dd5478e000bf3e33d85f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collIndex: 0
+  collIndex: 2
   scoreWhenCollected: 500
 --- !u!1 &6228313231291172104
 GameObject:
@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 1647856292669571678}
   - component: {fileID: 7528632552947469033}
   - component: {fileID: 2289544379005839143}
+  - component: {fileID: 6061603379286593159}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
@@ -161,6 +162,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraToFollow: {fileID: 0}
+--- !u!95 &6061603379286593159
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6228313231291172104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa8cfa86eab79fa4080dabf8b9b91488, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7030940466745101496
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a23a8dbe5e93a674aa66220805e7d6b2, type: 3}
   m_Name: PlayerStats_SO
   m_EditorClassIdentifier: 
+  maxLives: 5
   score: 0
   butterflyCollected: 0000000000
-  checkpointPos: {x: 0, y: 0, z: 0}
+  checkpointPos: {x: -52.16, y: 2.44, z: -87.9}
   isLoadingASave: 0

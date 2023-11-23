@@ -74,9 +74,7 @@ public class BossScript : Enemy
         if (canLookPlayer)
         {
             //Guarda sempre il giocatore
-            Quaternion quat = Quaternion.LookRotation(player.transform.position);
-
-            headToRotate.rotation = Quaternion.Euler(quat * Vector3.up);
+            headToRotate.LookAt(player.transform);
         }
 
 
