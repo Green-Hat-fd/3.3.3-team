@@ -17,6 +17,7 @@ public class DialogoScript : MonoBehaviour
     public static bool dialogueActive;
     public Animator animator;
     [SerializeField] private AudioSource suoneria;
+    private bool isIn = false;
     /*private void Start()
     {
         if (dialogueActive)
@@ -42,7 +43,7 @@ public class DialogoScript : MonoBehaviour
             }
             else
             {
-                StopAllCoroutines();
+                //StopAllCoroutines();
                 dialogoTxt.text = testi[indice];
                 
             }
@@ -58,7 +59,12 @@ public class DialogoScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            suoneria.Play();
+            if(!isIn) 
+            {
+                isIn=true;
+                suoneria.Play();
+                return;
+            }
         }
     }
     private void OnTriggerStay(Collider other)
@@ -73,6 +79,7 @@ public class DialogoScript : MonoBehaviour
                 dialogueActive = true;
                 animator.SetBool("dialogoAttivo", true);
                 Dialogo();
+                return;
             }
         }
     }

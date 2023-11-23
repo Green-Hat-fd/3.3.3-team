@@ -50,7 +50,6 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
 
 
 
-
     private void Awake()
     {
         //deathMng = FindObjectOfType<DeathManager>();
@@ -62,7 +61,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
         //Reset degli sprite
         ActivatePlayer(true);
         gameOverCanvas.gameObject.SetActive(false);
-
+        pauseScr.SelectGameOver();
         //Reset del punteggio
         stats_SO.ResetScore();
 
