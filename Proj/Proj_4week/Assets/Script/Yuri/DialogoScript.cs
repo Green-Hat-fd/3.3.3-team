@@ -8,13 +8,15 @@ public class DialogoScript : MonoBehaviour
 {
     [SerializeField] private GameObject dialogoPanel, message;
     [SerializeField] private string nomePG;
+    [SerializeField] private Image iconPlace;
+    [SerializeField] private Sprite iconPG; 
     [SerializeField] private Text dialogoTxt, nameTxt;
     [SerializeField] private string[] testi;
     [SerializeField] private float textSpeed = 0.3f;
     private int indice;
     public static bool dialogueActive;
     public Animator animator;
-
+    [SerializeField] private AudioSource suoneria;
     /*private void Start()
     {
         if (dialogueActive)
@@ -52,6 +54,13 @@ public class DialogoScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            suoneria.Play();
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
@@ -81,6 +90,7 @@ public class DialogoScript : MonoBehaviour
 
     public void Dialogo()
     {
+        iconPlace.sprite = iconPG;
         nameTxt.text = nomePG;
         dialogoTxt.text = string.Empty;
         indice = 0;

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2221765300063404068}
   - component: {fileID: 4145337346553171903}
   - component: {fileID: 4308184520630835459}
+  - component: {fileID: 7649904848682185549}
   m_Layer: 0
   m_Name: Sedia
   m_TagString: Untagged
@@ -83,3 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7649904848682185549
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5955705628770467304}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.93500006, y: 1.7720001, z: 0.98100007}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.771, z: 0}
+  m_TimeToStationary: 0.5

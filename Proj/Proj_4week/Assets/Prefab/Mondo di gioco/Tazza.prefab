@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9185580791109271493}
   - component: {fileID: 2472283684948612425}
   - component: {fileID: 6695316326002381885}
+  - component: {fileID: 5977008006738463}
   m_Layer: 3
   m_Name: Tazza
   m_TagString: Untagged
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c1848644c7ffcbd4e81890d3d07ad7aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,3 +144,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0814047, y: 0.35637555, z: 1.7253457}
   m_Center: {x: 0.010601572, y: -0.82181424, z: 0.025532579}
+--- !u!208 &5977008006738463
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9185580791109271494}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.283, y: 1.843, z: 1.5020001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.74300003, y: 0.84300005, z: 0}
+  m_TimeToStationary: 0.5

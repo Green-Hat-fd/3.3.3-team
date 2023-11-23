@@ -14,6 +14,7 @@ public class CheckpointScript : MonoBehaviour
     [Header("—— Feedback ——")]
     [SerializeField] AudioSource activatedSfx;
 
+    [SerializeField] GameObject lightActivate;
 
 
     private void Awake()
@@ -48,6 +49,7 @@ public class CheckpointScript : MonoBehaviour
 
             //Riproduce il suono quando viene raggiunto un checkpoint
             activatedSfx.Play();
+            lightActivate.SetActive(true);
         }
     }
 
