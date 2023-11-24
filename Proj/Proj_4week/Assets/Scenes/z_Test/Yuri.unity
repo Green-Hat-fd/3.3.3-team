@@ -1749,6 +1749,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412371649}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1524517568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5687716168809984586, guid: 93f0ed44f4b68984fa29eece3a1b549c, type: 3}
+  m_PrefabInstance: {fileID: 7085461148201714557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1524517576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524517568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e07643cc5cc944585ea0e47b870291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
+  scoreAtDeath: 0
+  damageSfx: {fileID: 0}
+  deathSfx: {fileID: 0}
+  enemyAnim: {fileID: 0}
 --- !u!1 &1606158339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,7 +2670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5687716168809984586, guid: 93f0ed44f4b68984fa29eece3a1b549c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5687716168809984598, guid: 93f0ed44f4b68984fa29eece3a1b549c, type: 3}
       propertyPath: m_RootOrder

@@ -110,7 +110,7 @@ MonoBehaviour:
   Damping: 6
   obstacleCheckDistance: 1.5
   player: {fileID: 0}
-  bulletPrefab: {fileID: 4811411964609924531, guid: 2702655b62433bb47bbb4c32f809a800, type: 3}
+  bulletPrefab: {fileID: 365451947920555006, guid: 8f50c08ebe39aed45bab3cea237dca5c, type: 3}
   firePoint: {fileID: 7085461148180052226}
   fireRate: 0.4
   bulletSpeed: 80

@@ -73,6 +73,7 @@ public class DialogoBoss : MonoBehaviour
         {
             animator.SetBool("dialogoAttivo", false);
             EnableAllScripts(true);
+            dialogoPanel.SetActive(false);
         }
     }
 
