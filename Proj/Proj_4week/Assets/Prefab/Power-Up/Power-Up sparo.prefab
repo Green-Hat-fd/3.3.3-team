@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 440845115652039696}
   m_Layer: 7
   m_Name: Power-Up sparo
-  m_TagString: Untagged
+  m_TagString: Grab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,8 +166,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.35
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.0183275
+  m_Center: {x: 0, y: 0.01411581, z: 0}
 --- !u!114 &440845115652039696
 MonoBehaviour:
   m_ObjectHideFlags: 0

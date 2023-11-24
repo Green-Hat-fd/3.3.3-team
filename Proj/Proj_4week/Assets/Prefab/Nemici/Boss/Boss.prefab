@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 8074153568551618416}
   - component: {fileID: 63550443416839545}
   - component: {fileID: 6121084768743854631}
+  - component: {fileID: 2938873341991927433}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -372,6 +373,7 @@ MonoBehaviour:
   maxHealth: 2
   stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
   scoreAtDeath: 0
+  navMeshAgent: {fileID: 0}
   damageSfx: {fileID: 232298997504410961}
   deathSfx: {fileID: 6274582761715359953}
   enemyAnim: {fileID: 3237390916519888253}
@@ -381,7 +383,7 @@ MonoBehaviour:
   attackCollider: {fileID: 2497980112628427916}
   attackRate: 5
   meleeAtkActiveTime: 1
-  bulletToShoot: {fileID: 0}
+  bulletToShoot: {fileID: 365451947920555006, guid: 5c4157fb0f195394cb64a005af363e44, type: 3}
   shoot_spawnPoint: {fileID: 7238245801826855844}
   fireRate: 2.5
   headToRotate: {fileID: 7000600357870021464}
@@ -394,6 +396,20 @@ MonoBehaviour:
   shootPart: {fileID: 5196328420614905258}
   bossAnim: {fileID: 3237390916519888253}
   bossHealthSlider: {fileID: 7190291018879326285}
+  fineLivello: {fileID: 0}
+--- !u!65 &2938873341991927433
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4697649888926005514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.679464, y: 6.550187, z: 8.528305}
+  m_Center: {x: 0.029798508, y: 6.7617354, z: 0.49875915}
 --- !u!1 &6408618773554904251
 GameObject:
   m_ObjectHideFlags: 0

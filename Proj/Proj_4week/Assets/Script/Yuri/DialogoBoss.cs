@@ -30,16 +30,9 @@ public class DialogoBoss : MonoBehaviour
     {
         if (GameManager.inst.inputManager.UI.Submit.WasPressedThisFrame() || GameManager.inst.inputManager.UI.Click.WasPressedThisFrame() || GameManager.inst.inputManager.Giocatore.Interazione.WasPressedThisFrame())
         {
-            if (dialogoTxt.text == testi[indice])
-            {
+            StopAllCoroutines();
                 ProssimoDialogo();
-            }
-            else
-            {
-                //StopAllCoroutines();
-                dialogoTxt.text = testi[indice];
-
-            }
+            
         }
     }
 

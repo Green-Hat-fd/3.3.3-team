@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 440845115652039696}
   m_Layer: 7
   m_Name: Power-Up salto
-  m_TagString: Untagged
+  m_TagString: Grab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

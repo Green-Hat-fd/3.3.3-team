@@ -22,8 +22,8 @@ public class VitaProiettile : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    /*private void OnCollisionEnter(Collision other)
     {
         Destroy(gameObject);
-    }
+    }*/
 }
