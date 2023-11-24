@@ -57,11 +57,13 @@ public class BossScript : Enemy
     [SerializeField] Animator bossAnim;
     [SerializeField] Slider bossHealthSlider;
 
-
+    [SerializeField] private GameObject fineLivello;
 
 
     void Awake()
     {
+        fineLivello.SetActive(false);
+
         player = FindObjectOfType<PlayerMovevent>().gameObject;
 
         isInvincible = false;
@@ -264,6 +266,8 @@ public class BossScript : Enemy
 
         //Nasconde il Boss
         gameObject.SetActive(false);
+
+        fineLivello.SetActive(true);
     }
 
     #endregion
