@@ -62,9 +62,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bbc7ccb4d843a4ba86360fd41e2256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 1
   stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
   scoreAtDeath: 0
+  navMeshAgent: {fileID: 0}
   damageSfx: {fileID: 404299042141813856}
   deathSfx: {fileID: 6253469219459287574}
   enemyAnim: {fileID: 4727993145462332815}

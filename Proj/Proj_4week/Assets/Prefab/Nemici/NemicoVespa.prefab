@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e07643cc5cc944585ea0e47b870291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 1
   stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
   scoreAtDeath: 200
   navMeshAgent: {fileID: 5687716168809984595}
@@ -148,7 +148,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1838895979711258145, guid: 35c07c2c79a4c344db2a476f260bc3e8, type: 2}
   m_audioClip: {fileID: 8300000, guid: e15c9dbac094d91408ed9d361bb3f44c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -244,7 +244,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1838895979711258145, guid: 35c07c2c79a4c344db2a476f260bc3e8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 46d3fa5ad5681354f8b23525aeae7853, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

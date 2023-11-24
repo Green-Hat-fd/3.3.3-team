@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogoBoss : MonoBehaviour
 {
@@ -18,9 +20,9 @@ public class DialogoBoss : MonoBehaviour
     [SerializeField] List<MonoBehaviour> scriptToBlock;
 
 
-    private void Start()
+    private void Awake()
     {
-        EnableAllScripts(false);
+        
         dialogueActive = true;
         Dialogo();
         animator.SetBool("dialogoAttivo", true);
@@ -43,12 +45,14 @@ public class DialogoBoss : MonoBehaviour
         dialogoTxt.text = string.Empty;
         indice = 0;
         StartCoroutine(MostraTesto());
+        
     }
 
     IEnumerator MostraTesto()
     {
         foreach (char letter in testi[indice].ToCharArray())
         {
+            EnableAllScripts(false);
             dialogoTxt.text += letter;
             yield return new WaitForSeconds(textSpeed);
         }

@@ -12595,6 +12595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nemico Pesce
       objectReference: {fileID: 0}
+    - target: {fileID: 2810115751050442602, guid: f1308d5e20b2edd4b9b601c6d2fb1fe8, type: 3}
+      propertyPath: playerTr
+      value: 
+      objectReference: {fileID: 1469883701}
     - target: {fileID: 2810115751050442603, guid: f1308d5e20b2edd4b9b601c6d2fb1fe8, type: 3}
       propertyPath: m_Size.x
       value: 43
@@ -23890,6 +23894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nemico Pesce (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2810115751050442602, guid: f1308d5e20b2edd4b9b601c6d2fb1fe8, type: 3}
+      propertyPath: playerTr
+      value: 
+      objectReference: {fileID: 1469883701}
     - target: {fileID: 2810115751050442602, guid: f1308d5e20b2edd4b9b601c6d2fb1fe8, type: 3}
       propertyPath: jumpForce
       value: 10.25
@@ -41117,6 +41125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nemico Pesce (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2810115751050442602, guid: f1308d5e20b2edd4b9b601c6d2fb1fe8, type: 3}
+      propertyPath: playerTr
+      value: 
+      objectReference: {fileID: 1469883701}
     - target: {fileID: 2810115751050442603, guid: f1308d5e20b2edd4b9b601c6d2fb1fe8, type: 3}
       propertyPath: m_Size.x
       value: 60
@@ -51199,6 +51211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nemico Pesce (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2810115751050442602, guid: f1308d5e20b2edd4b9b601c6d2fb1fe8, type: 3}
+      propertyPath: playerTr
+      value: 
+      objectReference: {fileID: 1469883701}
     - target: {fileID: 2810115751050442603, guid: f1308d5e20b2edd4b9b601c6d2fb1fe8, type: 3}
       propertyPath: m_Size.x
       value: 100
@@ -62755,6 +62771,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1469883701 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8467456748237557216, guid: c7b6ef05b9070af49be07bb0e19f892c, type: 3}
+  m_PrefabInstance: {fileID: 1469883699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1470483624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77067,6 +77088,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nemico Pesce (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2810115751050442602, guid: f1308d5e20b2edd4b9b601c6d2fb1fe8, type: 3}
+      propertyPath: playerTr
+      value: 
+      objectReference: {fileID: 1469883701}
     - target: {fileID: 2810115751050442603, guid: f1308d5e20b2edd4b9b601c6d2fb1fe8, type: 3}
       propertyPath: m_Size.x
       value: 75

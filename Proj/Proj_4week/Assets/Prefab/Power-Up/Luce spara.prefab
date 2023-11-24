@@ -4906,6 +4906,7 @@ GameObject:
   - component: {fileID: 5524538202393407820}
   - component: {fileID: 5524538202393407825}
   - component: {fileID: 5524538202393407824}
+  - component: {fileID: -6537580009973354489}
   m_Layer: 0
   m_Name: Luce spara
   m_TagString: Attack
@@ -4959,6 +4960,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &-6537580009973354489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524538202393407831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5eb540c81c0e2241adc7bc5171b9bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeDuration: 4
 --- !u!1 &7695619389486721733
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
-    [SerializeField] GameObject pauseMenuUI, playerHUD, optionButton, resumeButton, quitButton, riprovaButton, collectButton;
+    [SerializeField] GameObject pauseMenuUI, playerHUD, optionHUD, collectHUD, esciHUD, optionButton, resumeButton, quitButton, riprovaButton, collectButton;
 
     [SerializeField] List<MonoBehaviour> scriptToBlock;
 
@@ -45,8 +45,11 @@ public class PauseMenu : MonoBehaviour
     
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        optionHUD.SetActive(false);
+        esciHUD.SetActive(false);
+        collectHUD.SetActive(false);
         playerHUD.SetActive(true);
+        pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
         Cursor.visible = false;
