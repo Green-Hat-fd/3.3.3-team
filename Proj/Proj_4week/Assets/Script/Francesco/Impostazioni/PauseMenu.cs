@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
-    [SerializeField] GameObject pauseMenuUI, playerHUD, optionButton, resumeButton, quitButton, riprovaButton;
+    [SerializeField] GameObject pauseMenuUI, playerHUD, optionButton, resumeButton, quitButton, riprovaButton, collectButton;
 
     [SerializeField] List<MonoBehaviour> scriptToBlock;
 
@@ -119,5 +119,11 @@ public class PauseMenu : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(quitButton);
+    }
+
+    public void SelectCollect()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(collectButton);
     }
 }

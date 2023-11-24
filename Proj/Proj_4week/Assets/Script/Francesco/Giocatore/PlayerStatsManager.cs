@@ -18,7 +18,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
     [SerializeField] float yMinDeath = -10;
     [Min(1)]
     [SerializeField] int maxHealth = 3;
-    int health;
+    public int health;
     bool canBeDamaged,
          isDead;
 
@@ -209,7 +209,7 @@ public class PlayerStatsManager : MonoBehaviour, IPlayer
         //Mostra la schermata di Game Over
         gameOverCanvas.gameObject.SetActive(true);
 
-
+        pauseScr.SelectGameOver();
         #region Feedback
 
         //Audio

@@ -14,6 +14,7 @@ public class InstantKillPlayer : MonoBehaviour
             //Danneggia il giocatore
             //psm.SetHealthToZero();
             psm.RespawnFromCheckpoint();
+            psm.health--;
         }
     }
 }

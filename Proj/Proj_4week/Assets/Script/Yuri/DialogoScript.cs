@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class DialogoScript : MonoBehaviour
 {
@@ -18,15 +19,9 @@ public class DialogoScript : MonoBehaviour
     public Animator animator;
     [SerializeField] private AudioSource suoneria;
     private bool isIn = false;
-    /*private void Start()
-    {
-        if (dialogueActive)
-        {
-            dialogueActive = true;
-            dialogoTxt.text = string.Empty;
-            Dialogo();
-        }
-    }*/
+    private bool arguing = false;
+    private float attesa;
+
     private void Start()
     {
         dialogueActive = false;
@@ -35,10 +30,14 @@ public class DialogoScript : MonoBehaviour
 
     void Update()
     {
-        if (dialogueActive && GameManager.inst.inputManager.UI.Submit.WasPressedThisFrame() || GameManager.inst.inputManager.UI.Click.WasPressedThisFrame() || GameManager.inst.inputManager.Giocatore.Interazione.WasPressedThisFrame())
+        if (GameManager.inst.inputManager.UI.Submit.WasPressedThisFrame() || GameManager.inst.inputManager.UI.Click.WasPressedThisFrame() || GameManager.inst.inputManager.Giocatore.Interazione.WasPressedThisFrame())
         {
-            StopAllCoroutines();
-            ProssimoDialogo();
+            if ( arguing)
+            {
+                StopAllCoroutines();
+                ProssimoDialogo();
+            }
+            
         }
 
         if (!dialogueActive)
@@ -67,11 +66,16 @@ public class DialogoScript : MonoBehaviour
 
             if (GameManager.inst.inputManager.Giocatore.Interazione.WasPressedThisFrame() && !dialogueActive)
             {
-                dialogoPanel.SetActive(true);
-                dialogueActive = true;
-                animator.SetBool("dialogoAttivo", true);
-                Dialogo();
-                return;
+                if (!arguing) 
+                {
+                    arguing=true;
+                    dialogoPanel.SetActive(true);
+                    dialogueActive = true;
+                    animator.SetBool("dialogoAttivo", true);
+                    Dialogo();
+                    return; 
+                }
+                
             }
         }
     }
@@ -115,8 +119,13 @@ public class DialogoScript : MonoBehaviour
         }
         else
         {
+            
             animator.SetBool("dialogoAttivo", false);
             dialogueActive = false;
+            attesa = Time.time;
+            if (attesa >=3) {arguing = false; }
+            
+
         }
     }
 }
