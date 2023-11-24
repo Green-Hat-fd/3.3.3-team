@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5687716168809984583}
   - component: {fileID: 5687716168809984580}
   - component: {fileID: 5687716168809984581}
+  - component: {fileID: 202776847566504436}
   - component: {fileID: -2225197832312155765}
   - component: {fileID: -2570486744171020351}
   m_Layer: 0
@@ -116,6 +117,25 @@ MonoBehaviour:
   bulletSpeed: 80
   patrolInterval: 0.01
   anim: {fileID: 2171061911185524883}
+--- !u!114 &202776847566504436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687716168809984586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e07643cc5cc944585ea0e47b870291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  stats_SO: {fileID: 11400000, guid: 9f1dae430c23787448bf97e3f14205d7, type: 2}
+  scoreAtDeath: 200
+  navMeshAgent: {fileID: 5687716168809984595}
+  damageSfx: {fileID: -2225197832312155765}
+  deathSfx: {fileID: -2570486744171020351}
+  enemyAnim: {fileID: 2171061911185524883}
 --- !u!82 &-2225197832312155765
 AudioSource:
   m_ObjectHideFlags: 0
