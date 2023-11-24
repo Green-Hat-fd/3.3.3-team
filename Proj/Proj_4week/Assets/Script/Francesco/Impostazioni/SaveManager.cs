@@ -219,7 +219,7 @@ public class SaveManager : MonoBehaviour
         int score_load = int.Parse(fileReading[i_score + 1]);
 
         //Load del punteggio (tot)
-        //stats_SO.LoadScore(score_load);
+        stats_SO.LoadScore(score_load);
 
         #endregion
 

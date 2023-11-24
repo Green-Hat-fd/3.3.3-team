@@ -54,6 +54,11 @@ public class PlayerStatsSO_Script : ScriptableObject
         butterflyCollected[index] = value;
     }
 
+    public void LoadScore(int newScore)
+    {
+        score = newScore;
+    }
+
     #endregion
 
 
