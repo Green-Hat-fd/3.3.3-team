@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Collider))]
 public class Enemy : MonoBehaviour, IEnemy
@@ -13,6 +14,9 @@ public class Enemy : MonoBehaviour, IEnemy
     [SerializeField] PlayerStatsSO_Script stats_SO;
     [Min(0)]
     [SerializeField] int scoreAtDeath;
+
+    [Space(10)]
+    [SerializeField] NavMeshAgent navMeshAgent;
 
     [Space(10)]
     [SerializeField] AudioSource damageSfx;
@@ -71,12 +75,23 @@ public class Enemy : MonoBehaviour, IEnemy
             //Aggiunge il punteggio al giocatore
             stats_SO.AddScore(scoreAtDeath);
 
+            //Toglie il navmesh se c'è l'ha
+            if(navMeshAgent != null)
+            {
+                navMeshAgent.speed = 0;
+            }
+
             //Feedback
             deathSfx.PlayOneShot(deathSfx.clip);
             enemyAnim.SetTrigger("death");
 
             //Nasconde il nemico
-            gameObject.SetActive(false);
+            Invoke(nameof(RemoveEnemy), 5f);
         }
+    }
+
+    void RemoveEnemy()
+    {
+        gameObject.SetActive(false);
     }
 }
