@@ -25,6 +25,6 @@ public class FineLivello : MonoBehaviour
     public void ProssimoLivello()
     {
         animator.SetBool("traguardo", false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
     }
 }

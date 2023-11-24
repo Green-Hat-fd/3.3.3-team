@@ -1375,7 +1375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animMng: {fileID: 5743598781482142242}
   attacco: {fileID: 4637647095995897973}
-  proiettilePrefab: {fileID: 365451947920555006, guid: 8f50c08ebe39aed45bab3cea237dca5c, type: 3}
+  proiettilePrefab: {fileID: 365451947920555006, guid: 7cba2d2a36b62904296ff17c69b10785, type: 3}
   puntoSparo: {fileID: 5844519610584295318}
   velocitaProiettile: 700
 --- !u!1 &8696369567474472179
